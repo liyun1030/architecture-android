@@ -36,7 +36,7 @@
 
 ## 下载
 
-[Apk下载](https://github.com/zrq1060/architecture-android-old/blob/master/docs/images/apk/app-release.apk)
+[Apk下载](https://github.com/zrq1060/architecture-android/blob/master/docs/images/apk/app-release.apk)
 
 **扫码下载**
 
