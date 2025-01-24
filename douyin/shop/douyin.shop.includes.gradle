@@ -1,0 +1,11 @@
+// shop
+if (isShopInclude.toBoolean()) {
+    // 包含商城
+    // core
+    include(":douyin:shop:core:data")
+    include(":douyin:shop:core:model")
+    include(":douyin:shop:core:network")
+    // feature
+    include(":douyin:shop:feature:order")
+    include(":douyin:shop:feature:shop")
+}

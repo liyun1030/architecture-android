@@ -1,0 +1,50 @@
+plugins {
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
+}
+apply from: "${project.rootDir}/core.build.gradle"
+
+android {
+    namespace 'com.bytedance.douyin.core.router'
+    defaultConfig {
+        buildConfigField "boolean", "isShopInclude", isShopInclude.toString()
+    }
+
+    sourceSets {
+        main {
+            java {
+                if (isRouterReflect.toBoolean() || isFeatureSingle.toBoolean()) {
+                    // 指定用反射实现或者是单独Feature模块，用反射实现。包括不包括商场，都用反射实现，所以不需要再去判断。
+                    srcDirs += ['src/router-reflect']
+                    manifest.srcFile 'src/router-reflect/AndroidManifest.xml'
+                    dependencies {
+                        implementation(project(":douyin:core:test")) // 各种FakeRouter用
+                    }
+                } else {
+                    // 其他，用Dagger实现。再判断是否包括商场。
+                    def routerDaggerShopSrcDir
+                    if (isShopInclude.toBoolean()) {
+                        // 包含商城，用Dagger实现。
+                        routerDaggerShopSrcDir = 'src/router-dagger-shop-include'
+                    } else {
+                        // 不包含商城，抛异常，提醒开发者去掉代码。
+                        routerDaggerShopSrcDir = 'src/router-dagger-shop-exclude'
+                    }
+                    srcDirs += ['src/router-dagger', routerDaggerShopSrcDir]
+                    manifest.srcFile 'src/router-dagger/AndroidManifest.xml'
+                }
+            }
+        }
+    }
+    buildFeatures {
+        buildConfig = true
+    }
+}
+
+dependencies {
+    // ================================AndroidX库相关===================================
+    implementation(libs.startup)
+    // ================================Google库相关===================================
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+}

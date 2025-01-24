@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">DouYin</string>
+
+    <string name="main_tabs_home">Home</string>
+    <string name="main_tabs_shop">Shop</string>
+    <string name="main_tabs_camera">Camera</string>
+    <string name="main_tabs_message">Message</string>
+    <string name="main_tabs_mine">Mine</string>
+    <string name="main_tabs_friend">Friend</string>
+
+    <string name="main_tabs_drawer_start">drawer start</string>
+    <string name="main_tabs_drawer_end">drawer end</string>
+
+</resources>

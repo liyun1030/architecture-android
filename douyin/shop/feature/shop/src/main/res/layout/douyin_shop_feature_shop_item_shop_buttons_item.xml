@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minWidth="@dimen/douyin_shop_feature_shop_item_buttons_item_min_width"
+    android:paddingTop="@dimen/douyin_shop_feature_shop_item_buttons_item_padding_top"
+    android:paddingBottom="@dimen/douyin_shop_feature_shop_item_buttons_item_padding_bottom">
+
+    <ImageView
+        android:id="@+id/button_icon"
+        android:layout_width="@dimen/douyin_shop_feature_shop_item_buttons_item_icon_size"
+        android:layout_height="@dimen/douyin_shop_feature_shop_item_buttons_item_icon_size"
+        app:layout_constraintBottom_toTopOf="@id/button_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/button_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/douyin_shop_feature_shop_item_buttons_item_title_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_icon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

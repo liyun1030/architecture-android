@@ -1,0 +1,9 @@
+apply from: "${project.rootDir}/core.build.gradle"
+
+android {
+    namespace 'com.bytedance.core.model'
+}
+
+dependencies {
+
+}

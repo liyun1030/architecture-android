@@ -1,0 +1,27 @@
+plugins {
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlinSerialization)
+}
+apply from: "${project.rootDir}/core.build.gradle"
+
+android {
+    namespace 'com.bytedance.douyin.core.network'
+    buildFeatures {
+        buildConfig = true
+    }
+}
+
+dependencies {
+    // ================================Google库相关===================================
+    implementation(libs.hilt.android) // di下Module在用
+    ksp(libs.hilt.compiler)
+    // ================================Other库相关===================================
+    implementation(libs.glide) // ImageLoader在用
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.okhttp.logging)
+    api(libs.retrofit)
+    api(libs.retrofit.kotlin.serialization)
+    // ================================Project项目相关===================================
+    api(project(":core:network"))
+}

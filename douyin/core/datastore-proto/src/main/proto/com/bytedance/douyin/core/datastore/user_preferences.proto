@@ -1,0 +1,32 @@
+/*
+ * Copyright (C) 2024 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+syntax = "proto3";
+import "com/bytedance/douyin/core/datastore/user.proto";
+
+option java_package = "com.bytedance.douyin.core.datastore";
+option java_multiple_files = true;
+
+message UserPreferences {
+  // User，user。
+  User user = 1;
+  // List<Integer>，主页Tabs。
+  repeated int32 main_tabs = 2;
+  // List<Integer>，首页Tabs。
+  repeated int32 home_tabs = 3;
+  // boolean，是否用动态颜色，UseDynamicColor。
+  bool use_dynamic_color = 4;
+}

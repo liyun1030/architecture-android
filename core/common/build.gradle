@@ -1,0 +1,10 @@
+apply from: "${project.rootDir}/core.build.gradle"
+
+android {
+    namespace 'com.bytedance.core.common'
+}
+
+dependencies {
+    // ================================AndroidX库相关===================================
+    implementation(libs.startup) // MessageManager用了
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/menu_iv"
+        android:layout_width="@dimen/douyin_feature_home_icon_size"
+        android:layout_height="@dimen/douyin_feature_home_icon_size"
+        android:layout_marginStart="@dimen/douyin_feature_home_title_margin_horizontal"
+        android:contentDescription="@string/douyin_feature_home_menu"
+        android:src="@drawable/douyin_core_designsystem_ic_menu"
+        app:layout_constraintBottom_toBottomOf="@id/magic_indicator"
+        app:layout_constraintEnd_toStartOf="@id/magic_indicator"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/magic_indicator" />
+
+    <net.lucode.hackware.magicindicator.MagicIndicator
+        android:id="@+id/magic_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/douyin_feature_home_magic_indicator_height"
+        android:layout_marginHorizontal="@dimen/douyin_feature_home_magic_indicator_margin_horizontal"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toStartOf="@id/search_iv"
+        app:layout_constraintStart_toEndOf="@id/menu_iv"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/search_iv"
+        android:layout_width="@dimen/douyin_feature_home_icon_size"
+        android:layout_height="@dimen/douyin_feature_home_icon_size"
+        android:layout_marginEnd="@dimen/douyin_feature_home_title_margin_horizontal"
+        android:contentDescription="@string/douyin_feature_home_search"
+        android:src="@drawable/douyin_core_designsystem_ic_search"
+        app:layout_constraintBottom_toBottomOf="@id/magic_indicator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/magic_indicator"
+        app:layout_constraintTop_toTopOf="@id/magic_indicator" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

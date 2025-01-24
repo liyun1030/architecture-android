@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">抖音</string>
+
+    <string name="main_tabs_home">首页</string>
+    <string name="main_tabs_shop">商城</string>
+    <string name="main_tabs_camera">拍摄</string>
+    <string name="main_tabs_message">消息</string>
+    <string name="main_tabs_mine">我的</string>
+    <string name="main_tabs_friend">好友</string>
+
+    <string name="main_tabs_drawer_start">Start侧栏</string>
+    <string name="main_tabs_drawer_end">End侧栏</string>
+
+</resources>

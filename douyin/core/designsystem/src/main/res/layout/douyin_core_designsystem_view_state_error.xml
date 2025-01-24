@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Space
+        android:id="@+id/state_error_space_icon_top"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/state_error_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="10" />
+
+    <ImageView
+        android:id="@+id/state_error_icon"
+        android:layout_width="@dimen/douyin_core_designsystem_default_state_view_icon_size"
+        android:layout_height="@dimen/douyin_core_designsystem_default_state_view_icon_size"
+        android:contentDescription="@string/douyin_core_designsystem_state_error_title"
+        android:src="@mipmap/douyin_core_designsystem_ic_state_error"
+        app:layout_constraintBottom_toTopOf="@id/state_error_space_title_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/state_error_space_icon_top" />
+
+    <Space
+        android:id="@+id/state_error_space_title_top"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/state_error_title"
+        app:layout_constraintTop_toBottomOf="@id/state_error_icon"
+        app:layout_constraintVertical_weight="4" />
+
+    <TextView
+        android:id="@+id/state_error_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/douyin_core_designsystem_state_error_title"
+        android:textSize="@dimen/douyin_core_designsystem_default_state_view_title_text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/state_error_space_description_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/state_error_space_title_top" />
+
+    <Space
+        android:id="@+id/state_error_space_description_top"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/state_error_description"
+        app:layout_constraintTop_toBottomOf="@id/state_error_title"
+        app:layout_constraintVertical_weight="1" />
+
+    <TextView
+        android:id="@+id/state_error_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/douyin_core_designsystem_default_state_view_error_description_margin_horizontal"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toTopOf="@id/state_error_space_retry_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/state_error_space_description_top"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="@string/douyin_core_designsystem_state_error_hint" />
+
+    <Space
+        android:id="@+id/state_error_space_retry_top"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/state_error_retry"
+        app:layout_constraintTop_toBottomOf="@id/state_error_description"
+        app:layout_constraintVertical_weight="15" />
+
+    <Button
+        android:id="@+id/state_error_retry"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/douyin_core_designsystem_default_state_view_button_retry_margin_horizontal"
+        android:text="@string/douyin_core_designsystem_state_button_retry"
+        app:layout_constraintBottom_toTopOf="@id/state_error_space_retry_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/state_error_space_retry_top"
+        app:layout_constraintWidth_max="@dimen/douyin_core_designsystem_default_state_view_button_retry_width_max" />
+
+    <Space
+        android:id="@+id/state_error_space_retry_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/state_error_retry"
+        app:layout_constraintVertical_weight="15" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/state_error_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="state_error_icon,state_error_title,state_error_description,state_error_retry"
+        tools:visibility="visible" />
+</merge>

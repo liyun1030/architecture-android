@@ -1,0 +1,14 @@
+apply from: "${project.rootDir}/core.build.gradle"
+
+android {
+    namespace 'com.bytedance.core.test'
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+    // ================================AndroidX库相关===================================
+    api(libs.appcompat)
+    api(libs.recyclerview)
+}

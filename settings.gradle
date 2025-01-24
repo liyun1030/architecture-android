@@ -1,0 +1,26 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+        maven { url 'https://s01.oss.sonatype.org/service/local/repositories/snapshots/content/' }
+    }
+}
+
+rootProject.name = "architecture-android"
+
+apply from: "./core/core.includes.gradle"
+apply from: "./douyin/douyin.includes.gradle"
+// shop
+if (isShopInclude.toBoolean()) {
+    // 包含商城
+    apply from: "./douyin/shop/douyin.shop.includes.gradle"
+}

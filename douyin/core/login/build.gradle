@@ -1,0 +1,21 @@
+plugins {
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
+}
+apply from: "${project.rootDir}/core.build.gradle"
+
+android {
+    namespace 'com.bytedance.douyin.core.login'
+}
+
+dependencies {
+    // ================================AndroidX库相关===================================
+    implementation(libs.startup) // LoginInitializer用了
+    // ================================Google库相关===================================
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+    // ================================Project项目相关===================================
+    api(project(":douyin:core:router")) // LoginManager用
+    api(project(":douyin:core:datastore")) // LoginManager用
+    api(project(":douyin:core:common")) // LoginManager用
+}

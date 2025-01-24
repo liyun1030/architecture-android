@@ -1,0 +1,21 @@
+plugins {
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
+}
+apply from: "${project.rootDir}/core.build.gradle"
+
+android {
+    namespace 'com.bytedance.douyin.core.datastore'
+}
+
+dependencies {
+    // ================================AndroidX库相关===================================
+    implementation(libs.datastore)
+    // ================================Google库相关===================================
+    implementation(libs.hilt.android) // di下Module在用
+    ksp(libs.hilt.compiler)
+    // ================================Project项目相关===================================
+    implementation(project(":douyin:core:datastore-proto"))
+    api(project(":douyin:core:model"))
+    api(project(":douyin:core:common")) // DataStoreModule在用
+}

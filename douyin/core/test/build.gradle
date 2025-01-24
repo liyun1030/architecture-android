@@ -1,0 +1,11 @@
+apply from: "${project.rootDir}/core.build.gradle"
+
+android {
+    namespace 'com.bytedance.douyin.core.test'
+}
+
+dependencies {
+    // ================================Project项目相关===================================
+    api(project(":core:test"))
+    implementation(project(":douyin:core:common")) // AppTestFragment用
+}

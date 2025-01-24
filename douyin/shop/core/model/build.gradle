@@ -1,0 +1,10 @@
+apply from: "${project.rootDir}/core.build.gradle"
+
+android {
+    namespace 'com.bytedance.douyin.shop.core.model'
+}
+
+dependencies {
+    // ================================Project项目相关===================================
+    api(project(":douyin:core:model"))
+}

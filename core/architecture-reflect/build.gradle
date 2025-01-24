@@ -1,0 +1,12 @@
+apply from: "${project.rootDir}/core.build.gradle"
+
+android {
+    namespace = "com.bytedance.core.architecture.reflect"
+}
+
+dependencies {
+    // ================================Other库相关===================================
+    implementation(libs.kotlin.reflect)
+    // ================================Project项目相关===================================
+    api(project(":core:architecture"))
+}

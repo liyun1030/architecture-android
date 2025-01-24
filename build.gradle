@@ -1,0 +1,67 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    // android
+    alias(libs.plugins.androidApplication) apply false
+    alias(libs.plugins.androidLibrary) apply false
+    // kotlin
+    alias(libs.plugins.kotlinAndroid) apply false
+    // kotlin-serialization
+    alias(libs.plugins.kotlinSerialization) apply false
+    // protobuf
+    alias(libs.plugins.protobuf) apply false
+    // navigation-safe-args
+    alias(libs.plugins.navigationSafeArgs) apply false
+    // hilt-android
+    alias(libs.plugins.hilt) apply false
+    // ksp
+    alias(libs.plugins.ksp) apply false
+    // check versions
+    alias(libs.plugins.versions)
+    // graph
+    alias(libs.plugins.moduleGraph) apply true // Plugin applied to allow module graph generation
+}
+// Task to print all the module paths in the project e.g. :core:data
+// Used by module graph generator script
+tasks.register("printModulePaths") {
+    subprojects { subproject ->
+        if (subprojects.size() == 0) {
+            println(subproject.path)
+        }
+    }
+}
+
+// 配置每个子模块
+subprojects { subproject ->
+    if (subproject.getSubprojects().size() == 0) {
+        // 是单个的Module，不是目录。
+        if (subproject.toString().endsWith(":app'") || (isFeatureSingle.toBoolean() && subproject.toString().contains("feature") && !subproject.toString().contains("core:feature"))) {
+            // app模块、单独Feature模块(isFeatureSingle=true)下的所有的feature模块，使用application。
+            apply plugin: 'com.android.application'
+        } else {
+            apply plugin: 'com.android.library'
+        }
+
+        // 使用resourcePrefix，警告提醒 Module 内的资源名要增加前缀, 避免资源名冲突。
+        android {
+            if (!subproject.toString().endsWith(":app'")) {
+                // app模块不需要，因为app模块始终是application，没有被使用的时候，所以app模块不需要。
+                resourcePrefix = getResourcePrefix(path)
+            }
+        }
+    }
+}
+
+private static String getResourcePrefix(String name) {
+    String[] split = name.split("\\W")
+    // i = 1去掉第一个空
+    StringBuilder result = new StringBuilder()
+    for (int i = 1; i < split.length; i++) {
+        if (i > 1 && split[i] == split[i - 1]) {
+            // 重复元素，去掉。
+            continue
+        }
+        // 拼接用_
+        result.append(split[i].toLowerCase()).append("_")
+    }
+    return result.toString()
+}

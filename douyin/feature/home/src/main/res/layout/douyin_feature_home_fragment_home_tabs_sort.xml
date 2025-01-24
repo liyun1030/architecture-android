@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/douyin_feature_home_bg_home_tabs_sort"
+    android:paddingHorizontal="@dimen/douyin_feature_home_tabs_sort_padding_horizontal"
+    tools:context=".ui.hometabssort.HomeTabsSortDialogFragment">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/douyin_feature_home_tabs_sort_title_padding_vertical"
+        android:text="@string/douyin_feature_home_tabs_sort_title"
+        android:textSize="@dimen/douyin_feature_home_tabs_sort_title_text_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/close"
+        android:layout_width="@dimen/douyin_feature_home_tabs_sort_close_size"
+        android:layout_height="@dimen/douyin_feature_home_tabs_sort_close_size"
+        android:layout_marginStart="@dimen/douyin_feature_home_tabs_sort_close_margin_start"
+        android:contentDescription="@string/douyin_feature_home_close"
+        android:src="@drawable/douyin_core_designsystem_ic_close"
+        app:layout_constraintBottom_toBottomOf="@id/title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/title" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintHeight_max="@dimen/douyin_feature_home_tabs_sort_list_max_height"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

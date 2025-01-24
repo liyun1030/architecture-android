@@ -1,0 +1,9 @@
+apply from: "${project.rootDir}/douyin/douyin.feature.build.gradle"
+
+android {
+    namespace 'com.bytedance.douyin.feature.mine'
+}
+
+dependencies {
+
+}

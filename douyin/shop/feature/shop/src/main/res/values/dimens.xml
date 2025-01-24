@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="douyin_shop_feature_shop_search_content_margin_start">10dp</dimen>
+    <dimen name="douyin_shop_feature_shop_search_content_margin_top">5dp</dimen>
+    <dimen name="douyin_shop_feature_shop_search_content_drawable_padding">5dp</dimen>
+    <dimen name="douyin_shop_feature_shop_search_content_padding_start">10dp</dimen>
+    <dimen name="douyin_shop_feature_shop_search_content_padding_end">100dp</dimen>
+    <dimen name="douyin_shop_feature_shop_search_content_padding_vertical">5.5dp</dimen>
+
+    <dimen name="douyin_shop_feature_shop_search_camera_margin_end">10dp</dimen>
+
+    <dimen name="douyin_shop_feature_shop_search_button_margin_end">3dp</dimen>
+    <dimen name="douyin_shop_feature_shop_search_button_padding_horizontal">12dp</dimen>
+    <dimen name="douyin_shop_feature_shop_search_button_padding_vertical">0dp</dimen>
+    <dimen name="douyin_shop_feature_shop_search_button_min_size">0dp</dimen>
+
+    <dimen name="douyin_shop_feature_shop_shop_cart_margin_start">8dp</dimen>
+    <dimen name="douyin_shop_feature_shop_shop_cart_margin_end">10dp</dimen>
+
+    <dimen name="douyin_shop_feature_shop_refresh_layout_margin_top">5dp</dimen>
+    <dimen name="douyin_shop_feature_shop_shop_goods_list_margin_horizontal">4dp</dimen>
+
+    <dimen name="douyin_shop_feature_shop_item_card_corner_radius">10dp</dimen>
+    <dimen name="douyin_shop_feature_shop_item_activity_background_height">120dp</dimen>
+    <dimen name="douyin_shop_feature_shop_item_activity_image_layout_margin">5dp</dimen>
+
+    <dimen name="douyin_shop_feature_shop_item_goods_title_margin_horizontal">10dp</dimen>
+    <dimen name="douyin_shop_feature_shop_item_goods_title_margin_top">6dp</dimen>
+    <dimen name="douyin_shop_feature_shop_item_goods_title_text_size">15sp</dimen>
+
+    <dimen name="douyin_shop_feature_shop_item_goods_price_and_sold_num_margin_top">3dp</dimen>
+    <dimen name="douyin_shop_feature_shop_item_goods_price_and_sold_num_margin_bottom">6dp</dimen>
+    <dimen name="douyin_shop_feature_shop_item_goods_price_and_sold_num_text_size">12sp</dimen>
+
+    <dimen name="douyin_shop_feature_shop_item_buttons_item_min_width">75dp</dimen>
+    <dimen name="douyin_shop_feature_shop_item_buttons_item_padding_top">5dp</dimen>
+    <dimen name="douyin_shop_feature_shop_item_buttons_item_padding_bottom">10dp</dimen>
+    <dimen name="douyin_shop_feature_shop_item_buttons_item_icon_size">35dp</dimen>
+    <dimen name="douyin_shop_feature_shop_item_buttons_item_title_text_size">12sp</dimen>
+</resources>

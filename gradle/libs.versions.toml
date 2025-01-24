@@ -1,0 +1,118 @@
+[versions]
+#================================Android版本相关===================================
+compileSdk = "35"
+minSdk = "24"
+targetSdk = "35"
+versionCode = "1"
+versionName = "1.0.0"
+javaVersion = "17"
+#================================Test相关===================================
+junit = "4.13.2"
+androidx-test-ext-junit = "1.2.1"
+espresso-core = "3.6.1"
+#================================Lifecycle相关===================================
+lifecycle = "2.8.7"
+#================================Navigation相关===================================
+navigation = "2.8.5"
+#================================AndroidX库相关===================================
+appcompat = "1.7.0"
+constraintlayout = "2.2.0"
+viewpager2 = "1.1.0"
+activity = "1.10.0"
+fragment = "1.8.5"
+datastore = "1.1.2"
+startup = "1.2.0"
+recyclerview = "1.4.0"
+swiperefreshlayout = "1.1.0"
+#================================Google库相关===================================
+material = "1.12.0"
+protobuf = "4.29.3"
+kotlinxSerializationJson = "1.8.0"
+#================================Other库相关===================================
+baseRecyclerViewAdapterHelper = "4.1.6"
+magicIndicator = "1.7.0"
+smartRefreshLayout = "2.1.0"
+retrofit = "2.11.0"
+okhttp = "4.12.0"
+glide = "4.16.0"
+testPoint = "0.0.1"
+spans = "1.1.0"
+#================================Plugin相关===================================
+agp = "8.8.0"
+kotlin = "2.1.0"
+protobufPlugin = "0.9.4"
+hilt = "2.55"
+ksp = "2.1.0-1.0.29"
+moduleGraph = "2.7.3"
+webkit = "1.12.1"
+check-versions = "0.51.0"
+
+[libraries]
+#================================Test相关===================================
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+#================================AndroidX库相关===================================
+lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
+activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "activity" }
+fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment" }
+datastore = { group = "androidx.datastore", name = "datastore", version.ref = "datastore" }
+startup = { group = "androidx.startup", name = "startup-runtime", version.ref = "startup" }
+webkit = { group = "androidx.webkit", name = "webkit", version.ref = "webkit" }
+recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayout" }
+#================================Google库相关===================================
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+# hilt
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+# protobuf
+protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protobuf" }
+protobuf-protoc = { group = "com.google.protobuf", name = "protoc", version.ref = "protobuf" }
+#================================Other库相关===================================
+baseAdapter = { group = "io.github.cymchad", name = "BaseRecyclerViewAdapterHelper4", version.ref = "baseRecyclerViewAdapterHelper" }
+magicIndicator = { group = "com.github.hackware1993", name = "MagicIndicator", version.ref = "magicIndicator" }
+# SmartRefreshLayout
+refresh-header-classics = { group = "io.github.scwang90", name = "refresh-header-classics", version.ref = "smartRefreshLayout" }
+refresh-layout-kernel = { group = "io.github.scwang90", name = "refresh-layout-kernel", version.ref = "smartRefreshLayout" }
+# squareup
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-kotlin-serialization = { group = "com.squareup.retrofit2", name = "converter-kotlinx-serialization", version.ref = "retrofit" }
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+
+# glide
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+# test-point
+test-point-annotation = { group = "io.github.zrq1060", name = "test-point-annotation", version.ref = "testPoint" }
+test-point-api = { group = "io.github.zrq1060", name = "test-point-api", version.ref = "testPoint" }
+test-point-ksp = { group = "io.github.zrq1060", name = "test-point-ksp", version.ref = "testPoint" }
+# spans
+spans = { group = "io.github.zrq1060", name = "spans", version.ref = "spans" }
+# kotlin
+kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+
+[plugins]
+# android
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+# kotlin
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+# kotlin-serialization
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+# protobuf
+protobuf = { id = "com.google.protobuf", version.ref = "protobufPlugin" }
+# navigation-safe-args
+navigationSafeArgs = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigation" }
+# hilt-android
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+# ksp
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+# versions（检查依赖库版本，执行[dependencyUpdates]任务，链接：https://github.com/ben-manes/gradle-versions-plugin）
+versions = { id = "com.github.ben-manes.versions", version.ref = "check-versions" }
+# graph
+moduleGraph = { id = "com.jraska.module.graph.assertion", version.ref = "moduleGraph" }

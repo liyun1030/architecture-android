@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.verificationcode.LoginByPhoneNumberAndVerificationCodeFragment"
+    tools:ignore="LabelFor">
+
+    <com.bytedance.douyin.core.designsystem.widget.AppTitleBar
+        android:id="@+id/title_bar"
+        style="@style/douyin_feature_login_title_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:leftIcon="@drawable/douyin_core_designsystem_ic_close"
+        app:rightText="@string/douyin_feature_login_help_and_setup" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        style="@style/douyin_feature_login_scroll_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_bar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/scroll_view_content"
+            style="@style/douyin_feature_login_scroll_view_content">
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/douyin_feature_login_title"
+                android:text="@string/douyin_feature_login_phone_number_and_verification_code_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.bytedance.douyin.core.designsystem.widget.ClickableSpanCheckBox
+                android:id="@+id/agreement"
+                style="@style/douyin_feature_login_agreement"
+                app:layout_constraintEnd_toEndOf="@id/title"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                tools:text="@string/douyin_feature_login_phone_number_and_verification_code_agreement_tools_all" />
+
+            <EditText
+                android:id="@+id/phone_number"
+                style="@style/douyin_feature_login_input_phone_number"
+                app:layout_constraintEnd_toEndOf="@id/title"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@id/agreement" />
+
+            <TextView
+                android:id="@+id/error"
+                style="@style/douyin_feature_login_error"
+                app:layout_constraintEnd_toEndOf="@id/title"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@id/phone_number"
+                tools:text="@string/douyin_feature_login_register_error_tools" />
+
+            <TextView
+                android:id="@+id/hint"
+                style="@style/douyin_feature_login_hint"
+                android:text="@string/douyin_feature_login_register_hint"
+                app:layout_constraintEnd_toEndOf="@id/title"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@id/error" />
+
+            <Button
+                android:id="@+id/verification_and_login"
+                style="@style/douyin_feature_login_submit_button"
+                android:text="@string/douyin_feature_login_verification_and_login"
+                app:layout_constraintEnd_toEndOf="@id/title"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@id/hint" />
+
+            <TextView
+                android:id="@+id/login_password"
+                style="@style/douyin_feature_login_other_button_horizontal_start"
+                android:text="@string/douyin_feature_login_login_password"
+                app:layout_constraintEnd_toStartOf="@id/login_other"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@id/verification_and_login" />
+
+            <TextView
+                android:id="@+id/login_other"
+                style="@style/douyin_feature_login_other_button_horizontal_end"
+                android:text="@string/douyin_feature_login_login_other"
+                app:layout_constraintEnd_toEndOf="@id/title"
+                app:layout_constraintStart_toEndOf="@id/login_password"
+                app:layout_constraintTop_toBottomOf="@id/verification_and_login" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/retrieve_account"
+        style="@style/douyin_feature_login_retrieve_account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="@string/douyin_feature_login_retrieve_account_tools" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

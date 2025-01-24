@@ -1,0 +1,55 @@
+<resources>
+    <string name="douyin_feature_login_phone_number_and_verification_code_title">登录后，体验完整功能</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_agreement_tools_all">已阅读并同意用户协议和隐私政策以及运营商服务协议，同时登录并使用抖音火山版（原火山小视频）和抖音，运营商将对你提供的手机号进行验证</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_agreement_tools_start">已阅读并同意用户协议和隐私政策以及运营商服务协议，同时登录并使用抖音火山版（原火山小视频）和抖音</string>
+
+    <string name="douyin_feature_login_phone_number_and_verification_code_agreement_1">已阅读并同意&#160;</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_agreement_2">用户协议</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_agreement_3">&#160;和&#160;</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_agreement_4">隐私政策</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_agreement_5">&#160;以及&#160;</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_agreement_6">运营商服务协议</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_agreement_7_all"> ，同时登录并使用抖音火山版（原火山小视频）和抖音，运营商将对你提供的手机号进行验证</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_agreement_7_start"> ，同时登录并使用抖音火山版（原火山小视频）和抖音</string>
+
+    <string name="douyin_feature_login_phone_number_and_verification_code_next_title">请输入验证码</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_next_verification_code_hint_tools">验证码已通过短信发送至+86 1234567890</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_next_verification_code_hint_1">验证码已通过短信发送至：</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_next_voice_verification_code_tools">收不到短信？获取语音验证码</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_next_voice_verification_code_1">收不到短信？</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_next_voice_verification_code_2">获取语音验证码</string>
+
+    <string name="douyin_feature_login_phone_number_and_password_title">手机号密码登录</string>
+    <string name="douyin_feature_login_phone_number_and_password_retrieve_password_tools">忘记了？找回密码</string>
+    <string name="douyin_feature_login_phone_number_and_password_retrieve_password_1">忘记了？</string>
+    <string name="douyin_feature_login_phone_number_and_password_retrieve_password_2">找回密码</string>
+
+    <string name="douyin_feature_login_email_and_password_title">邮箱密码登录</string>
+    <string name="douyin_feature_login_retrieve_password_by_phone_number_and_verification_code_title">找回密码</string>
+    <string name="douyin_feature_login_retrieve_password_new_password_title">请输入新登录密码</string>
+    <string name="douyin_feature_login_retrieve_password_new_password_subtitle">密码为8~20位，至少包含字母、数字、符号2种组合</string>
+
+    <string name="douyin_feature_login_register_hint">未注册的手机号验证通过后将自动注册</string>
+    <string name="douyin_feature_login_register_error_tools">系统繁忙，请稍后再试</string>
+    <string name="douyin_feature_login_verification_and_login">验证并登录</string>
+    <string name="douyin_feature_login_login">登录</string>
+    <string name="douyin_feature_login_complete">完成</string>
+    <string name="douyin_feature_login_login_password">密码登录</string>
+    <string name="douyin_feature_login_login_other">其他方式登录</string>
+    <string name="douyin_feature_login_login_email_and_password">邮箱密码登录</string>
+    <string name="douyin_feature_login_login_phone_number_and_password">手机号密码登录</string>
+    <string name="douyin_feature_login_help_and_setup">帮助与设置</string>
+    <string name="douyin_feature_login_input_phone_number_hint">请输入手机号</string>
+    <string name="douyin_feature_login_input_email_hint">请输入邮箱用户名</string>
+    <string name="douyin_feature_login_input_verification_code_hint">请输入验证码</string>
+    <string name="douyin_feature_login_input_password_hint">请输入密码</string>
+    <string name="douyin_feature_login_retrieve_account_tools">手机号不用了？找回帐号</string>
+    <string name="douyin_feature_login_retrieve_account_1">手机号不用了？</string>
+    <string name="douyin_feature_login_retrieve_account_2">找回帐号</string>
+    <string name="douyin_feature_login_phone_number_invalid">请输入正确的手机号</string>
+    <string name="douyin_feature_login_email_invalid">请输入正确的邮箱</string>
+    <string name="douyin_feature_login_agreement_unchecked">请勾选用户协议</string>
+    <string name="douyin_feature_login_verification_code_invalid">请输入正确的验证码</string>
+    <string name="douyin_feature_login_password_invalid">请输入正确的密码</string>
+    <string name="douyin_feature_login_phone_number_empty">手机号不能为空</string>
+</resources>

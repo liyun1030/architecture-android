@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="@dimen/main_tab_item_image_size"
+        android:layout_height="@dimen/main_tab_item_image_size"
+        android:layout_gravity="center" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="@dimen/main_tab_item_image_size"
+        android:layout_height="@dimen/main_tab_item_image_size"
+        android:layout_gravity="center"
+        tools:ignore="ContentDescription" />
+
+    <Button
+        android:id="@+id/title"
+        style="@style/douyin_core_designsystem_text_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingVertical="@dimen/main_tab_item_padding_vertical"
+        android:textSize="@dimen/main_tab_item_title_test_size"
+        android:textStyle="bold" />
+
+</FrameLayout>

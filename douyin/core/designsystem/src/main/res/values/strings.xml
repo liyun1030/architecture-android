@@ -1,0 +1,11 @@
+<resources>
+    <string name="douyin_core_designsystem_state_error_title">Net Error</string>
+    <string name="douyin_core_designsystem_state_error_hint">Network error. Please check and try again.</string>
+    <string name="douyin_core_designsystem_state_button_retry">Retry</string>
+
+    <string name="douyin_core_designsystem_state_empty_title">Empty Data</string>
+
+    <string name="douyin_core_designsystem_state_error_network_timeout">The request timed out. Please try again later.</string>
+    <string name="douyin_core_designsystem_state_error_network_unknown_host">Unable to connect to server. Please check network connection.</string>
+    <string name="douyin_core_designsystem_state_error_network_unknown_exception">Unknown Exception: %1$s</string>
+</resources>

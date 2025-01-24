@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/douyin_shop_feature_shop_item_card_corner_radius"
+    tools:ignore="ContentDescription">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/goods_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/goods_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/douyin_shop_feature_shop_item_goods_title_margin_horizontal"
+            android:layout_marginTop="@dimen/douyin_shop_feature_shop_item_goods_title_margin_top"
+            android:textSize="@dimen/douyin_shop_feature_shop_item_goods_title_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/goods_image" />
+
+        <TextView
+            android:id="@+id/goods_price_and_sold_num"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/douyin_shop_feature_shop_item_goods_price_and_sold_num_margin_top"
+            android:layout_marginBottom="@dimen/douyin_shop_feature_shop_item_goods_price_and_sold_num_margin_bottom"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/douyin_shop_feature_shop_item_goods_price_and_sold_num_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/goods_title"
+            app:layout_constraintStart_toStartOf="@id/goods_title"
+            app:layout_constraintTop_toBottomOf="@id/goods_title" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

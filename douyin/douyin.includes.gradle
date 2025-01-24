@@ -1,0 +1,22 @@
+// app
+include(":douyin:app")
+// core
+include(":douyin:core:architecture")
+include(":douyin:core:common")
+include(":douyin:core:data")
+include(":douyin:core:datastore")
+include(":douyin:core:datastore-proto")
+include(":douyin:core:designsystem")
+include(':douyin:core:feature-single')
+include(':douyin:core:login')
+include(":douyin:core:model")
+include(":douyin:core:network")
+include(":douyin:core:router")
+include(":douyin:core:test")
+include(":douyin:core:webview")
+// feature
+include(":douyin:feature:home")
+include(":douyin:feature:login")
+include(":douyin:feature:message")
+include(":douyin:feature:mine")
+include(":douyin:feature:video")

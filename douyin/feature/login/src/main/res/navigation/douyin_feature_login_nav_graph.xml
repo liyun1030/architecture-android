@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_navigation"
+    app:startDestination="@id/login_by_phone_number_and_verification_code">
+
+    <fragment
+        android:id="@+id/login_by_phone_number_and_verification_code"
+        android:name="com.bytedance.douyin.feature.login.ui.login.verificationcode.LoginByPhoneNumberAndVerificationCodeFragment"
+        tools:label="登录-(手机号+验证码)-手机号"
+        tools:layout="@layout/douyin_feature_login_fragment_login_by_phone_number_and_verification_code">
+        <action
+            android:id="@+id/action_to_next"
+            app:destination="@id/login_by_phone_number_and_verification_code_next" />
+        <action
+            android:id="@+id/action_to_login_by_phone_number_and_password"
+            app:destination="@id/login_by_phone_number_and_password" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/login_by_phone_number_and_verification_code_next"
+        android:name="com.bytedance.douyin.feature.login.ui.login.verificationcode.LoginByPhoneNumberAndVerificationCodeNextFragment"
+        tools:label="登录-(手机号+验证码)-验证码"
+        tools:layout="@layout/douyin_feature_login_fragment_login_by_phone_number_and_verification_code_next">
+        <argument
+            android:name="phone"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/login_by_phone_number_and_password"
+        android:name="com.bytedance.douyin.feature.login.ui.login.password.LoginByPhoneNumberAndPasswordFragment"
+        tools:label="登录-(手机号+密码)"
+        tools:layout="@layout/douyin_feature_login_fragment_login_by_phone_number_and_password">
+        <action
+            android:id="@+id/action_to_retrieve_password"
+            app:destination="@id/retrieve_password_by_phone_number_and_verification_code" />
+        <action
+            android:id="@+id/action_to_login_by_email_and_password"
+            app:destination="@id/login_by_email_and_password" />
+    </fragment>
+    <fragment
+        android:id="@+id/login_by_email_and_password"
+        android:name="com.bytedance.douyin.feature.login.ui.login.email.LoginByEmailAndPasswordFragment"
+        tools:label="登录-(邮箱+密码)"
+        tools:layout="@layout/douyin_feature_login_fragment_login_by_email_and_password" />
+
+    <fragment
+        android:id="@+id/retrieve_password_by_phone_number_and_verification_code"
+        android:name="com.bytedance.douyin.feature.login.ui.retrievepassword.RetrievePasswordByPhoneNumberAndVerificationCodeFragment"
+        tools:label="找回密码-(手机号+验证码)"
+        tools:layout="@layout/douyin_feature_login_fragment_retrieve_password_by_phone_number_and_verification_code">
+        <action
+            android:id="@+id/action_to_new_password"
+            app:destination="@id/retrieve_password_new_password" />
+        <argument
+            android:name="phone"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/retrieve_password_new_password"
+        android:name="com.bytedance.douyin.feature.login.ui.retrievepassword.RetrievePasswordNewPasswordFragment"
+        tools:label="找回密码-新密码"
+        tools:layout="@layout/douyin_feature_login_fragment_retrieve_password_new_password">
+        <argument
+            android:name="phone"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
+</navigation>

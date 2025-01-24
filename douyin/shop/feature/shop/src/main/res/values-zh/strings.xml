@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="douyin_shop_feature_shop_currency_symbol">￥</string>
+    <string name="douyin_shop_feature_shop_goods_sold">已售%1$s件</string>
+
+    <string name="douyin_shop_feature_shop_search_camera">拍照搜索</string>
+    <string name="douyin_shop_feature_shop_search_button">搜索</string>
+    <string name="douyin_shop_feature_shop_cart">购物车</string>
+</resources>

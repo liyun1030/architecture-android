@@ -1,0 +1,9 @@
+apply from: "${project.rootDir}/douyin/douyin.feature.shop.build.gradle"
+
+android {
+    namespace 'com.bytedance.douyin.shop.feature.order'
+}
+
+dependencies {
+
+}

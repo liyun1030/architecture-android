@@ -1,0 +1,19 @@
+plugins {
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
+}
+apply from: "${project.rootDir}/core.build.gradle"
+
+android {
+    namespace = "com.bytedance.douyin.core.data"
+}
+
+dependencies {
+    // ================================Google库相关===================================
+    implementation(libs.hilt.android) // di下Module在用
+    ksp(libs.hilt.compiler)
+    // ================================Project项目相关===================================
+    api(project(":douyin:core:model"))
+    api(project(":douyin:core:datastore"))
+    api(project(":douyin:core:network"))
+}

@@ -1,0 +1,15 @@
+apply from: "${project.rootDir}/core.build.gradle"
+
+android {
+    namespace = "com.bytedance.core.webview"
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+    // ================================AndroidX库相关===================================
+    implementation libs.webkit
+    // ================================Project项目相关===================================
+    api(project(":core:architecture")) // WebViewFragment在用
+}

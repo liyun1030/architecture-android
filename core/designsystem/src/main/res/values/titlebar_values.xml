@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ResourceName">
+    <declare-styleable name="TitleBar">
+
+        <!-- 左边 -->
+        <attr name="leftVisible" format="boolean" />
+        <!-- 左文本 -->
+        <attr name="leftText" format="string" />
+        <attr name="leftTextSize" format="dimension" />
+        <attr name="leftTextColor" format="reference|color" />
+        <attr name="leftTextStyleFlag">
+            <flag name="normal" value="0" />
+            <flag name="bold" value="1" />
+            <flag name="italic" value="2" />
+        </attr>
+
+        <!-- 左图 -->
+        <attr name="leftIcon" format="reference" />
+        <attr name="leftIconSize" format="dimension" />
+        <attr name="leftIconWidth" format="dimension" />
+        <attr name="leftIconHeight" format="dimension" />
+
+        <!-- 中文本 -->
+        <attr name="title" format="string" />
+        <attr name="titleTextSize" format="dimension" />
+        <attr name="titleTextColor" format="reference|color" />
+        <attr name="titleTextStyleFlag">
+            <flag name="normal" value="0" />
+            <flag name="bold" value="1" />
+            <flag name="italic" value="2" />
+        </attr>
+
+        <!-- 右 -->
+        <!-- 右文本 -->
+        <attr name="rightText" format="string" />
+        <attr name="rightTextSize" format="dimension" />
+        <attr name="rightTextColor" format="reference|color" />
+        <attr name="rightTextStyleFlag">
+            <flag name="normal" value="0" />
+            <flag name="bold" value="1" />
+            <flag name="italic" value="2" />
+        </attr>
+
+        <!-- 右图 -->
+        <attr name="rightIcon" format="reference" />
+        <attr name="rightIconSize" format="dimension" />
+        <attr name="rightIconWidth" format="dimension" />
+        <attr name="rightIconHeight" format="dimension" />
+    </declare-styleable>
+
+</resources>

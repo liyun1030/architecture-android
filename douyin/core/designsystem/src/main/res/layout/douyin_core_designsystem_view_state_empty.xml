@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/state_empty_icon"
+        android:layout_width="@dimen/douyin_core_designsystem_default_state_view_icon_size"
+        android:layout_height="@dimen/douyin_core_designsystem_default_state_view_icon_size"
+        android:contentDescription="@string/douyin_core_designsystem_state_empty_title"
+        android:src="@mipmap/douyin_core_designsystem_ic_state_empty"
+        app:layout_constraintBottom_toTopOf="@id/state_empty_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/state_empty_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/douyin_core_designsystem_default_state_view_empty_margin_top"
+        android:text="@string/douyin_core_designsystem_state_empty_title"
+        android:textSize="@dimen/douyin_core_designsystem_default_state_view_title_text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/state_empty_icon" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/state_empty_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="state_empty_icon,state_empty_title"
+        tools:visibility="visible" />
+</merge>

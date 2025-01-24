@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="douyin_feature_home_menu">菜单</string>
+    <string name="douyin_feature_home_search">搜索</string>
+    <string name="douyin_feature_home_close">关闭</string>
+
+    <string name="douyin_feature_home_tabs_hot">热点</string>
+    <string name="douyin_feature_home_tabs_live">直播</string>
+    <string name="douyin_feature_home_tabs_choice">精选</string>
+    <string name="douyin_feature_home_tabs_same_city">同城</string>
+    <string name="douyin_feature_home_tabs_group_buying">团购</string>
+    <string name="douyin_feature_home_tabs_following">关注</string>
+    <string name="douyin_feature_home_tabs_experience">经验</string>
+    <string name="douyin_feature_home_tabs_friend">朋友</string>
+    <string name="douyin_feature_home_tabs_recommended">推荐</string>
+    <string name="douyin_feature_home_tabs_shop">商城</string>
+
+    <string name="douyin_feature_home_tabs_sort_title">按住拖动调整频道顺序</string>
+    <string name="douyin_feature_home_tabs_sort_not_support">该频道不支持排序</string>
+</resources>

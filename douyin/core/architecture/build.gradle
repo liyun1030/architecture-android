@@ -1,0 +1,20 @@
+apply from: "${project.rootDir}/core.build.gradle"
+
+android {
+    namespace = "com.bytedance.douyin.core.architecture"
+}
+
+dependencies {
+    // ================================AndroidX库相关===================================
+    api(libs.recyclerview) // AppAdapter用
+    api(libs.viewpager2) // AppFragmentStateAdapter用
+    // ================================Other库相关===================================
+    api(libs.baseAdapter) // AppAdapter用
+    api(libs.magicIndicator) // AppNavigatorAdapter用
+    api(libs.swiperefreshlayout) // SwipeRefreshLoadMoreHelper用
+    // ================================Project项目相关===================================
+    api(project(":core:architecture"))
+//    api(project(":core:architecture-reflect")) // 架构反射实现ViewModel、ViewBinding用
+    api(project(":douyin:core:designsystem")) // createAppStateView等在用
+    api(project(":douyin:core:data")) // BaseRefreshLoadMoreHelper用
+}

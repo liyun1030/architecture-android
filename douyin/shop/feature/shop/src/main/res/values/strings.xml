@@ -1,0 +1,9 @@
+<resources>
+    <string name="douyin_shop_feature_shop_currency_symbol">$</string>
+    <string name="douyin_shop_feature_shop_goods_sold">%1$s sold</string>
+
+    <string name="douyin_shop_feature_shop_search_camera">camera</string>
+    <string name="douyin_shop_feature_shop_search_button">search</string>
+    <string name="douyin_shop_feature_shop_cart">cart</string>
+
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="douyin_core_designsystem_magic_indicator_indicator_line_width">20dp</dimen>
+
+    <dimen name="douyin_core_designsystem_default_state_view_icon_size">80dp</dimen>
+    <dimen name="douyin_core_designsystem_default_state_view_title_text_size">20sp</dimen>
+    <dimen name="douyin_core_designsystem_default_state_view_button_retry_margin_horizontal">30dp</dimen>
+    <dimen name="douyin_core_designsystem_default_state_view_button_retry_width_max">300dp</dimen>
+    <dimen name="douyin_core_designsystem_default_state_view_empty_margin_top">20dp</dimen>
+    <dimen name="douyin_core_designsystem_default_state_view_error_description_margin_horizontal">30dp</dimen>
+</resources>

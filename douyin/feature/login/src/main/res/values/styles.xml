@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="douyin_feature_login_title_bar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="douyin_feature_login_scroll_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="douyin_feature_login_scroll_view_content">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">100dp</item>
+    </style>
+
+    <style name="douyin_feature_login_title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">30dp</item>
+        <item name="android:layout_marginEnd">30dp</item>
+        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="douyin_feature_login_agreement">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:gravity">top</item>
+        <item name="android:paddingStart">5dp</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="douyin_feature_login_input">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">25dp</item>
+        <item name="android:background">@drawable/douyin_core_designsystem_bg_input</item>
+        <item name="android:paddingStart">15dp</item>
+        <item name="android:paddingEnd">15dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="douyin_feature_login_input_phone_number" parent="douyin_feature_login_input">
+        <item name="android:hint">@string/douyin_feature_login_input_phone_number_hint</item>
+        <item name="android:inputType">phone</item>
+        <item name="android:maxLength">11</item>
+    </style>
+
+    <style name="douyin_feature_login_error">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textColor">?attr/colorError</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="douyin_feature_login_hint">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="douyin_feature_login_submit_button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="douyin_feature_login_other_button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:textColor">?attr/colorTertiary</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="douyin_feature_login_other_button_start" parent="douyin_feature_login_other_button">
+        <item name="android:gravity">start</item>
+        <item name="android:paddingEnd">15dp</item>
+    </style>
+
+    <style name="douyin_feature_login_other_button_end" parent="douyin_feature_login_other_button">
+        <item name="android:gravity">end</item>
+        <item name="android:paddingStart">15dp</item>
+    </style>
+
+    <style name="douyin_feature_login_other_button_horizontal_start" parent="douyin_feature_login_other_button_start">
+        <item name="android:layout_width">0dp</item>
+    </style>
+
+    <style name="douyin_feature_login_other_button_horizontal_end" parent="douyin_feature_login_other_button_end">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_marginStart">40dp</item>
+    </style>
+
+    <style name="douyin_feature_login_voice_verification_code" parent="douyin_feature_login_other_button_start">
+        <item name="android:textColor">@null</item>
+    </style>
+
+    <style name="douyin_feature_login_retrieve_password" parent="douyin_feature_login_other_button_horizontal_start">
+        <item name="android:textColor">@null</item>
+    </style>
+
+    <style name="douyin_feature_login_retrieve_account">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">?attr/colorSurface</item>
+    </style>
+
+    <style name="douyin_feature_login_subtitle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+    <style name="douyin_feature_login_input_verification_code" parent="douyin_feature_login_input">>
+        <item name="android:hint">@string/douyin_feature_login_input_verification_code_hint</item>
+        <item name="android:inputType">number</item>
+        <item name="android:maxLength">6</item>
+    </style>
+
+    <style name="douyin_feature_login_input_password" parent="douyin_feature_login_input">
+        <item name="android:hint">@string/douyin_feature_login_input_password_hint</item>
+        <item name="android:inputType">textPassword</item>
+        <item name="android:maxLength">16</item>
+    </style>
+
+    <style name="douyin_feature_login_input_email" parent="douyin_feature_login_input">
+        <item name="android:hint">@string/douyin_feature_login_input_email_hint</item>
+        <item name="android:inputType">textEmailAddress</item>
+        <item name="android:maxLength">35</item>
+    </style>
+</resources>

@@ -1,0 +1,136 @@
+// 公用插件，不能使用plugins，必须使用plugin。
+if (isFeatureSingle.toBoolean()) {
+    // 单独Feature模块，引用application。
+    apply plugin: 'com.android.application'
+} else {
+    // 非单独模块，引用library。
+    apply plugin: 'com.android.library'
+}
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'com.google.dagger.hilt.android'
+apply plugin: 'com.google.devtools.ksp'
+
+ksp {
+    arg("TEST_MODULE_NAME", project.getName())
+}
+android {
+
+    compileSdk libs.versions.compileSdk.get().toInteger()
+
+    defaultConfig {
+        minSdk libs.versions.minSdk.get().toInteger()
+        if (isFeatureSingle.toBoolean()) {
+            // 单独Feature模块，引用targetSdk、versionCode、versionName，设置appName。
+            // applicationId默认为namespace
+            targetSdk libs.versions.targetSdk.get().toInteger()
+            versionCode libs.versions.versionCode.get().toInteger()
+            versionName libs.versions.versionName.get().toString()
+
+            def appName = "DY-" + project.path.substring(project.path.lastIndexOf(":") + 1).toUpperCase()
+            resValue "string", "app_name", appName
+            resValue "string", "test_list_label", appName
+        }
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility libs.versions.javaVersion.get().toInteger()
+        targetCompatibility libs.versions.javaVersion.get().toInteger()
+    }
+
+    kotlinOptions {
+        jvmTarget = libs.versions.javaVersion.get().toInteger()
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    sourceSets {
+        main {
+            java {
+                // 设置源代码路径
+                if (isFeatureSingle.toBoolean()) {
+                    // 单独Feature模块，增加每个Feature模块的srcDirs、AndroidManifest。
+                    // -设置目录
+                    // --把core:feature-single模块下的feature-single目录复制到此。
+                    copyFeatureSingleDir()
+                    // --合并main/AndroidManifest.xml到此。因为主清单文件只能有一个。
+                    mergeMainAndroidManifest()
+                    // -设置路径
+                    srcDirs += ['src/feature-single']
+                    manifest.srcFile 'src/feature-single/AndroidManifest.xml'
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // ================================Test相关===================================
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.espresso.core)
+    // ================================Google库相关===================================
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+    // ================================Other库相关===================================
+    implementation(libs.spans)
+    // ================================Project项目相关===================================
+    implementation(project(":douyin:core:architecture"))
+    implementation(project(":douyin:core:common"))
+    implementation(project(":douyin:core:data"))
+    implementation(project(":douyin:core:designsystem"))
+    implementation(project(":douyin:core:login"))
+    implementation(project(":douyin:core:router"))
+    implementation(project(":douyin:core:test"))
+    implementation(project(":douyin:core:webview"))
+
+    if (isFeatureSingle.toBoolean()) {
+        // 单独Feature模块，引用feature-single依赖。
+        implementation(project(":douyin:core:feature-single"))
+        // 用test-point
+        implementation(libs.test.point.api)
+        ksp(libs.test.point.ksp)
+    }
+    implementation(libs.test.point.annotation)
+}
+
+private void copyFeatureSingleDir() {
+    // 把core:feature-single模块下的feature-single目录，复制到当前模块目录的src/feature-single下。
+    def sourceDir = new File("${rootDir}/douyin/core/feature-single/feature-single")
+    def destDir = new File("${projectDir}/src/feature-single")
+    destDir.mkdirs()
+    sourceDir.eachFile { file ->
+        def destFile = new File(destDir, file.name)
+        destFile.write(file.text)
+    }
+}
+
+private void mergeMainAndroidManifest() {
+    // 把当前模块下的src/main/AndroidManifest.xml，合并到当前模块目录的src/feature-single/AndroidManifest.xml。
+    def sourceFile = new File("${projectDir}/src/main/AndroidManifest.xml")
+    def destFile = new File("${projectDir}/src/feature-single/AndroidManifest.xml")
+    def text = sourceFile.text
+    if (!text.contains("xmlns:android")) {
+        // 没设置application，替换。
+        text = text.replaceAll("<manifest", "<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"")
+    }
+    if (text.contains("<application")) {
+        // 有设置application，替换。
+        text = text.replaceAll("<application", "<application android:name=\"com.bytedance.douyin.feature.App\"")
+    } else {
+        // 没设置application，替换。
+        text = text.replaceAll("</manifest>", "    <application android:name=\"com.bytedance.douyin.feature.App\" />\n\n</manifest>")
+    }
+    destFile.write(text)
+}

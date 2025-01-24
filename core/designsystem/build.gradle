@@ -1,0 +1,12 @@
+apply from: "${project.rootDir}/core.build.gradle"
+
+android {
+    namespace = "com.bytedance.core.designsystem"
+}
+
+dependencies {
+    // ================================AndroidX库相关===================================
+    implementation libs.activity.ktx // TitleBar使用了onBackPressedDispatcher
+    // ================================Project项目相关===================================
+    api(project(":core:common")) // 工具类在用
+}

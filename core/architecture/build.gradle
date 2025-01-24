@@ -1,0 +1,22 @@
+apply from: "${project.rootDir}/core.build.gradle"
+
+android {
+    namespace = "com.bytedance.core.architecture"
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+    // ================================AndroidX库相关===================================
+    api(libs.appcompat)
+    api(libs.lifecycle.viewmodel.ktx)
+    api(libs.fragment.ktx)
+    implementation(libs.startup) // MessageManager用了
+    // ================================Google库相关===================================
+    api(libs.material) // Snackbar用了
+    // ================================Project项目相关===================================
+    api(project(":core:common")) // 工具类在用
+    api(project(":core:designsystem")) // BaseViewsActivity等在用StateView
+    api(project(":core:model")) // BaseFragmentStateAdapter在用
+}

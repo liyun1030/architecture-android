@@ -1,0 +1,19 @@
+<resources>
+    <string name="douyin_feature_home_menu">menu</string>
+    <string name="douyin_feature_home_search">search</string>
+    <string name="douyin_feature_home_close">close</string>
+
+    <string name="douyin_feature_home_tabs_hot">Hot</string>
+    <string name="douyin_feature_home_tabs_live">Live</string>
+    <string name="douyin_feature_home_tabs_choice">Choice</string>
+    <string name="douyin_feature_home_tabs_same_city">Same City</string>
+    <string name="douyin_feature_home_tabs_group_buying">Group Buying</string>
+    <string name="douyin_feature_home_tabs_following">Following</string>
+    <string name="douyin_feature_home_tabs_experience">Experience</string>
+    <string name="douyin_feature_home_tabs_friend">Friend</string>
+    <string name="douyin_feature_home_tabs_recommended">Recommended</string>
+    <string name="douyin_feature_home_tabs_shop">Shop</string>
+
+    <string name="douyin_feature_home_tabs_sort_title">Press and drag to adjust the channel order</string>
+    <string name="douyin_feature_home_tabs_sort_not_support">This channel does not support sorting</string>
+</resources>

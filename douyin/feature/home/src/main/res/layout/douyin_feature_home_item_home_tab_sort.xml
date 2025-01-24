@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/douyin_feature_home_tabs_sort_item_title_margin_bottom"
+        android:background="@drawable/douyin_feature_home_bg_home_tabs_sort_item"
+        android:padding="@dimen/douyin_feature_home_tabs_sort_item_title_padding"
+        android:textSize="@dimen/douyin_feature_home_tabs_sort_item_title_text_size"
+        android:textStyle="bold"
+        app:drawableEndCompat="@drawable/douyin_core_designsystem_ic_menu" />
+
+</FrameLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="douyin_feature_home_icon_size">25dp</dimen>
+    <dimen name="douyin_feature_home_title_margin_horizontal">15dp</dimen>
+    <dimen name="douyin_feature_home_magic_indicator_height">36dp</dimen>
+    <dimen name="douyin_feature_home_magic_indicator_margin_horizontal">5dp</dimen>
+    <dimen name="douyin_feature_home_magic_indicator_title_text_size">17sp</dimen>
+
+    <dimen name="douyin_feature_home_tabs_sort_bg_top_radius">20dp</dimen>
+    <dimen name="douyin_feature_home_tabs_sort_padding_horizontal">15dp</dimen>
+    <dimen name="douyin_feature_home_tabs_sort_title_padding_vertical">15dp</dimen>
+    <dimen name="douyin_feature_home_tabs_sort_title_text_size">16sp</dimen>
+    <dimen name="douyin_feature_home_tabs_sort_close_size">20dp</dimen>
+    <dimen name="douyin_feature_home_tabs_sort_close_margin_start">15dp</dimen>
+    <dimen name="douyin_feature_home_tabs_sort_list_max_height">510dp</dimen>
+
+    <dimen name="douyin_feature_home_tabs_sort_item_bg_top_radius">8dp</dimen>
+    <dimen name="douyin_feature_home_tabs_sort_item_title_padding">15dp</dimen>
+    <dimen name="douyin_feature_home_tabs_sort_item_title_text_size">15sp</dimen>
+    <dimen name="douyin_feature_home_tabs_sort_item_title_margin_bottom">8dp</dimen>
+</resources>

@@ -1,0 +1,6 @@
+apply from: "${project.rootDir}/douyin/douyin.feature.build.gradle"
+
+dependencies {
+    // ================================Project项目相关===================================
+    implementation(project(":douyin:shop:core:data"))
+}

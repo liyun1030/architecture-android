@@ -1,0 +1,26 @@
+plugins {
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
+}
+apply from: "${project.rootDir}/core.build.gradle"
+
+ksp {
+    arg("TEST_MODULE_NAME", project.getName())
+}
+
+android {
+    namespace 'com.bytedance.douyin.core.feature.single'
+
+}
+
+dependencies {
+    // ================================AndroidX库相关===================================
+    implementation libs.appcompat // TestFragmentDetailsAndroidEntryPointActivity用
+    // ================================Google库相关===================================
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+    // ================================Other库相关===================================
+    implementation(libs.test.point.annotation)
+    implementation(libs.test.point.api)
+    ksp(libs.test.point.ksp)
+}

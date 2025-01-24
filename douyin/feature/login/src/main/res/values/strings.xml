@@ -1,0 +1,54 @@
+<resources>
+    <string name="douyin_feature_login_phone_number_and_verification_code_title">After logging in, experience the full functionality</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_agreement_tools_all">Have read and agreed to the User Agreement, Privacy Policy and Operator Service Agreement. Log in and use Douyin Huoshan Edition (formerly Huoshan Video) and Douyin at the same time. The operator will verify the mobile phone number you provided.</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_agreement_tools_start">Have read and agreed to the User Agreement, Privacy Policy and Operator Service Agreement, and logged in and used Douyin Huoshan Edition (formerly Huoshan Video) and Douyin</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_agreement_1">Have read and agreed&#160;</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_agreement_2">User Agreement</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_agreement_3">&#160;and&#160;</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_agreement_4">Privacy Policy</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_agreement_5">&#160;as well as&#160;</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_agreement_6">Carrier Service Agreement</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_agreement_7_all">, log in and use Douyin Huoshan Version (formerly Huoshan Video) and Douyin at the same time, the operator will verify the mobile phone number you provided.</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_agreement_7_start">, log in and use Douyin Huoshan Edition (formerly Huoshan Video) and Douyin at the same time</string>
+
+    <string name="douyin_feature_login_phone_number_and_verification_code_next_title">Please enter the verification code</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_next_verification_code_hint_tools">Verification code has been sent via SMS to +86 1234567890</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_next_verification_code_hint_1">Verification code has been sent via SMS to:</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_next_voice_verification_code_tools">Can\'t receive text messages\? Get voice verification code</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_next_voice_verification_code_1">Can\'t receive text messages\?</string>
+    <string name="douyin_feature_login_phone_number_and_verification_code_next_voice_verification_code_2">Get voice verification code</string>
+
+    <string name="douyin_feature_login_phone_number_and_password_title">Login with mobile phone number and password</string>
+    <string name="douyin_feature_login_phone_number_and_password_retrieve_password_tools">Forgot\? Retrieve password</string>
+    <string name="douyin_feature_login_phone_number_and_password_retrieve_password_1">Forgot\?</string>
+    <string name="douyin_feature_login_phone_number_and_password_retrieve_password_2">Retrieve password</string>
+
+    <string name="douyin_feature_login_email_and_password_title">Email password login</string>
+    <string name="douyin_feature_login_retrieve_password_by_phone_number_and_verification_code_title">Retrieve password</string>
+    <string name="douyin_feature_login_retrieve_password_new_password_title">Please enter new login password</string>
+    <string name="douyin_feature_login_retrieve_password_new_password_subtitle">The password should be 8~20 characters and contain at least 2 combinations of letters, numbers, and symbols.</string>
+
+    <string name="douyin_feature_login_register_hint">Unregistered mobile phone numbers will be automatically registered after verification.</string>
+    <string name="douyin_feature_login_register_error_tools">The system is busy, please try again later</string>
+    <string name="douyin_feature_login_verification_and_login">Verify and log in</string>
+    <string name="douyin_feature_login_login">Log in</string>
+    <string name="douyin_feature_login_complete">Finish</string>
+    <string name="douyin_feature_login_login_password">Password login</string>
+    <string name="douyin_feature_login_login_other">Other ways to log in</string>
+    <string name="douyin_feature_login_login_email_and_password">Email password login</string>
+    <string name="douyin_feature_login_login_phone_number_and_password">Login with mobile phone number and password</string>
+    <string name="douyin_feature_login_help_and_setup">Help and Settings</string>
+    <string name="douyin_feature_login_input_phone_number_hint">Please enter mobile phone number</string>
+    <string name="douyin_feature_login_input_email_hint">Please enter your email username</string>
+    <string name="douyin_feature_login_input_verification_code_hint">Please enter the verification code</string>
+    <string name="douyin_feature_login_input_password_hint">Please enter password</string>
+    <string name="douyin_feature_login_retrieve_account_tools">No longer using your mobile number\? Retrieve account</string>
+    <string name="douyin_feature_login_retrieve_account_1">No longer using your mobile number\?</string>
+    <string name="douyin_feature_login_retrieve_account_2">Retrieve account</string>
+    <string name="douyin_feature_login_phone_number_invalid">Please enter the correct mobile phone number</string>
+    <string name="douyin_feature_login_email_invalid">Please enter the correct email address</string>
+    <string name="douyin_feature_login_agreement_unchecked">Please check the user agreement</string>
+    <string name="douyin_feature_login_verification_code_invalid">Please enter the correct verification code</string>
+    <string name="douyin_feature_login_password_invalid">Please enter correct password</string>
+    <string name="douyin_feature_login_phone_number_empty">Mobile phone number cannot be empty</string>
+</resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nested_scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MineFragment"
+    tools:ignore="Overdraw">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/top_background"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@mipmap/douyin_feature_mine_bg_top"
+            app:layout_constraintDimensionRatio="642:360"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <Button
+            android:id="@+id/open_end_drawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/douyin_feature_mine_open_end_drawer_margin_top"
+            android:text="@string/douyin_feature_mine_open_end_drawer_title"
+            app:layout_constraintTop_toBottomOf="@id/top_background" />
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/douyin_feature_mine_logout_margin_top"
+            android:text="@string/douyin_feature_mine_logout_title"
+            app:layout_constraintTop_toBottomOf="@id/open_end_drawer" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/dynamic_colors_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/douyin_feature_mine_dynamic_colors_switch_margin_horizontal"
+            android:layout_marginTop="@dimen/douyin_feature_mine_logout_margin_top"
+            android:background="?attr/colorSurfaceContainerHighest"
+            android:padding="@dimen/douyin_feature_mine_dynamic_colors_switch_padding"
+            android:text="@string/douyin_feature_mine_dynamic_colors_switch_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logout" />
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/douyin_feature_mine_logout_margin_top"
+            android:text="@string/douyin_feature_mine_content"
+            android:textSize="@dimen/douyin_feature_mine_content_text_size"
+            app:layout_constraintTop_toBottomOf="@id/dynamic_colors_switch" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

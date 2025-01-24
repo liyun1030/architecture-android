@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="douyin_feature_home_tabs_sort_list_max_height">250dp</dimen>
+
+</resources>

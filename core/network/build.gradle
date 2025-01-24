@@ -1,0 +1,10 @@
+apply from: "${project.rootDir}/core.build.gradle"
+
+android {
+    namespace = "com.bytedance.core.network"
+}
+
+dependencies {
+    // ================================Project项目相关===================================
+    api(project(":core:common")) // 使用了RuleException
+}

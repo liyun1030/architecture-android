@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="douyin_feature_mine_open_end_drawer_margin_top">50dp</dimen>
+    <dimen name="douyin_feature_mine_logout_margin_top">20dp</dimen>
+    <dimen name="douyin_feature_mine_content_text_size">200sp</dimen>
+    <dimen name="douyin_feature_mine_dynamic_colors_switch_margin_horizontal">30dp</dimen>
+    <dimen name="douyin_feature_mine_dynamic_colors_switch_padding">10dp</dimen>
+</resources>

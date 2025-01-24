@@ -1,0 +1,8 @@
+include(":core:architecture")
+include(":core:architecture-reflect")
+include(":core:designsystem")
+include(":core:model")
+include(":core:network")
+include(":core:test")
+include(":core:common")
+include(":core:webview")

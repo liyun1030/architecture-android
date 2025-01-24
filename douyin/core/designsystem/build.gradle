@@ -1,0 +1,32 @@
+plugins {
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
+}
+apply from: "${project.rootDir}/core.build.gradle"
+
+android {
+    namespace 'com.bytedance.douyin.core.designsystem'
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
+    }
+}
+
+dependencies {
+    // ================================AndroidX库相关===================================
+    api(libs.constraintlayout) // DefaultStateView用
+    implementation(libs.startup) // DesignSystemInitializer用了
+    api(libs.appcompat) // DefaultStateView用
+    api(libs.material) // DesignSystemInitializer用了
+    // ================================Google库相关===================================
+    implementation(libs.hilt.android) // di下Module在用
+    ksp(libs.hilt.compiler)
+    // ================================Other库相关===================================
+    api(libs.refresh.layout.kernel) // 核心必须依赖，DesignSystemInitializer用了
+    api(libs.refresh.header.classics) // 经典刷新头，DesignSystemInitializer用了
+    api(libs.magicIndicator) // NoSetColorSimplePagerTitleView用
+    // ================================Project项目相关===================================
+    api(project(":core:designsystem"))
+    api(project(":douyin:core:common")) // DynamicColorManager用
+    api(project(":douyin:core:datastore")) // DynamicColorManager用
+}
