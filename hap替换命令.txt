@@ -1,0 +1,18 @@
+hdc shell mount -o remount,rw /
+
+HongZhiService.hap的替换
+hdc shell rm system/app/com.archermind.hongzhiservice/HongZhiService.hap
+hdc file send HongZhiService.hap system/app/com.archermind.hongzhiservice/HongZhiService.hap
+
+File-Manager.hap的替换
+hdc shell rm /system/app/com.archermind.filemanager/File-Manager.hap
+hdc file send File-Manager.hap /system/app/com.archermind.filemanager/File-Manager.hap
+
+Settings.hap的替换
+hdc file send Settings.hap /system/app/com.ohos.settings/Settings.hap
+
+
+三个换完之后，执行以下命令
+hdc shell sync
+hdc shell setenforce 0
+hdc shell reboot

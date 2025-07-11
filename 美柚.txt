@@ -1,0 +1,634 @@
+开发套件下载
+https://developer.huawei.com/consumer/cn/doc/harmonyos-tools/download-0000001822993593
+
+API材料
+https://developer.huawei.com/consumer/cn/doc/harmonyos-tools/download-0000001822993593
+
+后台任务
+https://gitee.com/openharmony/applications_app_samples/tree/master/code/Solutions/Shopping/OrangeShopping
+
+HarmonyOS NEXT 论坛
+https://developer.huawei.com/consumer/cn/forum/block/harmonyos-next
+
+HarmonyOS NEXT 提单平台
+https://developer.huawei.com/consumer/cn/support/feedback/#/?channel=ICS0000
+https://issuereporter.developer.huawei.com/my-created
+
+IR提单平台
+https://issuereporter.developer.huawei.com/
+https://issuereporter.developer.huawei.com/my-created
+
+鸿蒙三方库
+https://ohpm.openharmony.cn/#/cn/home
+
+
+sdk:
+http://ci.openharmony.cn/workbench/cicd/dailybuild/dailylist
+https://laval.csdn.net/65e57d02c8f8dc5d4627a7dd.html
+
+
+simulator:
+1、wifi密码：My130529 （MeetYou/MeetYou-Test）
+
+
+2、模拟器地址（mac x86）：https://developer.huawei.com/consumer/cn/deveco-developer-suite/enabling/detail?id=6938d45d05b04a209152d0cc31e97526
+
+套件地址：https://developer.huawei.com/consumer/cn/deveco-developer-suite/enabling/kit?currentPage=1&pageSize=100
+
+
+3：IOA的下载地址：https://ioa-c.xmmeiyou.com:8443/d
+
+
+api11的demo可以跑起来。换了下launcher起不来还得看看。
+
+1. ci下载api11 full sdk(不用执行npm install；配置ohpm环境变量)
+2. 600编译器新建或开启已有工程，选择api10构建完成。然后再修改成11后同步，执行编译
+3. 新建应用安装后点击无法启动，执行hdc shell  param set const.security.developermode.state 1
+
+
+
+https://gitlab.meiyou.com/Harmony/HarmonyMeetYou/-/merge_requests/261
+
+jekins打包：http://pk.meiyou.com:8080/job/HarmonyOS-Meetyou/build?delay=0sec
+
+
+
+
+@所有人  
+
+早上会议内容：
+
+一、人员介绍：
+
+美柚方：
+
+林武汉：底层框架+全局+账号
+陈春明：底层框架+全局+账号
+陈婷：  底层框架+社区
+吴旻建：经期，备孕，孕期，辣妈
+陈延模：经期，备孕，孕期，辣妈
+冯静雯：美柚UI对接人
+
+对接方：
+
+- xx : 负责协助底层框架开发+架构答疑
+- xx : 负责协作女性健康逻辑开发
+- xx : 负责协作女性健康逻辑开发
+- xx UI : 负责 相关UI开发
+- xx UI : 负责 相关UI开发
+
+二、项目介绍
+
+1、美柚鸿蒙原生应用 HarmonyMeetYou gitlab地址：https://gitlab.meiyou.com/Harmony/HarmonyMeetYou
+
+	- master： 正式环境分支
+	- release：提测分支
+	- release拉一个feature-xxx进行开发
+
+
+2、美柚 Android原生应用 对外开放 gitlab地址：https://gitlab.meiyou.com/Harmony/SeeyouClient
+
+	-	直接使用clone master分支查看代码
+	-	此项目想的res-all和assets-all包含了项目里的所有资源文件，方便开发时对UI文件进行查找
+
+
+
+3、鸿蒙Next设备号（调试环境提供设备号的机子才可测试）
+
+	-	需要调试的可将设备号发给 陈婷 进行新增
+
+4、项目需求文档：https://www.tapd.meiyou.com/66994792/prong/stories/stories_list
+
+
+5、项目初步规范见：https://gitlab.meiyou.com/Harmony/HarmonyMeetYou/README.md
+
+
+三、协作方式：
+
+1、钉钉群+协作文档：https://alidocs.dingtalk.com/i/nodes/o14dA3GK8g5Q6oBlFj3qXz1DV9ekBD76?corpId=ding565502d1488eebe9&utm_medium=im_card&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim&utm_scene=team_space&utm_source=im
+
+2、UI资源相关：通过安卓源码查看页面和xml，找到对应的资源，如果资源不合适，请找我们的UI进行替换（建议统一整理一下后再反馈给UI，减少反馈次数，集中处理）
+
+3、UI开发过程：先找对应的逻辑同学获取数据结构和大体的逻辑流程，然后根据现有UI进行开发（可使用线上版本或者使用现有源代码编译），建议使用源代码逻辑编译开发，可以看清楚更具体的UI条件，如各种UI提示
+
+
+
+待办：
+
+-	每个需求分配；
+
+
+
+10.收藏：内容列表，历史列表，编辑
+21.好孕日报：好孕日报
+58.资讯图文详情：
+59.美柚用户服务协议(多个webview)
+60.帮助与反馈(多个webview)
+72.站内信，消息列表，消息管理
+78.回复详情页
+
+
+https://www.tapd.meiyou.com/66994792/prong/stories/view/1166994792001222137?url_cache_key=from_url_story_list_eee43993f7439ab7cced6950cb6dba30&action_entry_type=story_tree_list
+
+git:
+hmfws_liyun@xiaoyouzi.com
+2HKc0VArEVoHrm5UpadEfNcOQWk9kTFG --liyunlong
+
+tapd:hmfws_liyun@xiaoyouzi.com Liyun1030
+
+hmfws_liyun@xiaoyouzi.com
+
+
+邮箱地址：mail.xiaoyouzi.com
+邮箱账号用我昨天发给各位 git的账号，
+邮箱密码统一使用：Az987321
+
+邮箱密码诸位不要修改，方便研发完毕，邮箱美柚收回。
+
+第二件事
+登录邮箱后激活tapd，完成各自的注册！
+
+
+客户端连接：
+https://www.todesk.com/download.html
+密码：
+G6YXoD8Wz*4tD
+
+
+todesk:Liyun1030...
+
+序号	远程机链接号	分配人员	备注
+1	185 715 794	郑龙旭	客户端连接：
+https://www.todesk.com/download.html
+密码：
+G6YXoD8Wz*4tD
+2	783 979 662	张金龙	
+3	378 039 435	汪语	
+4	849 324 213	刘俊光	
+5	511 264 178	李云	
+6	942 285 790	邓锦	
+
+test/4ab84a98759905472b
+
+
+https://gitlab.meiyou.com/Harmony/HarmonyMeetYou.git
+
+查看本机代理：netsh winhttp show proxy
+
+
+jekins打包
+http://ci.meiyou.im:8080/view/harmonyos/job/HarmonyOS-Meetyou/
+
+
+那你换一下全称 charlesproxy.com/getssl
+
+空格：&nbsp;与\u00A0
+
+
+@北京-框架/应用-汪语 @北京-驱动-任万杰 
+仓颉白皮书：https://developer.huawei.com/consumer/cn/doc/openharmony-cangjie/cj-wp-abstract
+仓颉开发指南：https://developer.huawei.com/consumer/cn/doc/openharmony-cangjie/89_u7f16_u7a0b_u8bed_u8a00_u5f00_u53d1_u6307_u5357
+仓颉api：https://developer.huawei.com/consumer/cn/doc/openharmony-cangjie/libs_overview_ohos
+仓颉语言教程：https://developer.huawei.com/consumer/cn/training/course/slightMooc/C101718903607800132
+源码仓需申请：https://gitcode.com/Cangjie/
+
+
+
+ hdc shell aa force-stop com.meiyou.hmapp
+ hdc uninstall com.meiyou.hmapp 
+ hdc shell mkdir data/local/tmp/d930fbdae34e4679b541135c55e5a8ce
+ hdc file send D:\harmonyos_workspace\HarmonyMeetYou\HarmonyMeetYou\product\entry\build\env_test\outputs\env_test\harmonyos_meetyou_targets_test.hap "data/local/tmp/d930fbdae34e4679b541135c55e5a8ce" 
+ hdc shell bm install -p data/local/tmp/d930fbdae34e4679b541135c55e5a8ce 
+ hdc shell rm -rf data/local/tmp/d930fbdae34e4679b541135c55e5a8ce
+ hdc shell aa start -a EntryAbility -b com.meiyou.hmapp 
+
+
+git config --global http.lowSpeedLimit 0
+git config --global http.lowSpeedTime 999999
+
+
+hdc shell bm get --udid
+
+
+item_mother_weekchange_process_bar.xml
+孕期进度条 可以参考代码 com.meiyou.yunyu.weekchange.widget.PregnancyProcessBar
+
+美柚app账号：
+18872210510、xiao900510
+
+16604124724、123456aa
+
+
+宝宝记
+18359268743  123456aa
+
+
+http://docs.ag.com/sheet/DUW,0VU4VR0srsEra?tab=BB08J2
+
+
+TopicDetailPage
+NewsDetailsPage
+
+InteractionView
+
+InteractionCommentView---编辑
+
+
+
+
+BBJTimeAxisModuleView是宝宝记时间轴的主UI
+
+1.BBJAxisCacheController：本地数据缓存
+2.BBJViewModel:接口过程请求model封装，需要补全逻辑，调用BBJBabyHttpManager的各类接口
+3.BBJTimeAxisController是业务交互的辅助类，其中需要补全逻辑：分页加载的，首页请求的等
+4.BBJTimeAxisDataSource 是时间轴列表数据源model
+
+
+
+模块态与时间轴态区分？
+
+BabyPublishLabelPage
+
+
+AddPublishBabyInfoPage
+
+
+宝宝记：
+com.meiyou.seeyoubaby.circle.babycircle4home.view.CircleRecyclerView4Home
+BabyHome4FrameLayout
+BabyCircleFragment4Home
+
+BabyHomeGuideBar 安卓的宝宝引导条的逻辑
+CircleCommonView4Home 宝宝主页评论
+CircleHeaderInviteView4pregnancy 宝宝头部-亲友邀请
+
+CircleHeaderTimeLineView4Home--宝宝头部-今日
+CircleHeaderView4Home--宝宝主页头部
+
+
+
+BBJTimeAxisModuleView是宝宝记时间轴的主UI
+
+1.BBJAxisCacheController：本地数据缓存
+2.BBJViewModel:接口过程请求model封装，需要补全逻辑，调用BBJBabyHttpManager的各类接口
+3.BBJTimeAxisController是业务交互的辅助类，其中需要补全逻辑：分页加载的，首页请求的等
+4.BBJTimeAxisDataSource 是时间轴列表数据源model
+
+
+
+模块态与时间轴态区分？
+
+BabyPublishLabelPage
+
+
+AddPublishBabyInfoPage
+
+
+宝宝记测试账号
+18359268743  123456aa
+
+
+
+
+任务标题                              
+1.检测图片或视频违规逻辑框                                   UI时间：0.5天         android源码时间: 0.5天
+1.标签页的时间轴列表页(长页面)                               UI时间：2天           android源码时间: 1天
+2.时间轴列表项管理(删除、无权操作等4种框)                    UI时间：1.5天           android源码时间: 1天  
+3.标签编辑页(添加，删除，保存，含emoji表情)                  UI时间：2天         android源码时间: 1天 
+4.可见亲友列表页                                             UI时间：1.5天          android源码时间: 1天 
+5.发布页谁可以看页面					     UI时间：1天          android源码时间: 0.5天 
+6.首页今天：制作MV，编辑mv,生成mv,检测本地有新图或视频，     未知，android是接入腾讯的pag的库去做的，鸿蒙还得调研                      
+
+1.标签页的时间轴列表页(长页面)     开发2天， 安卓源码:1.5天
+2.标签编辑页(添加，删除，保存，含emoji表情)   开发2天， 安卓源码:1.5天
+3.可见亲友列表页   开发1.5天， 安卓源码:1天
+4.发布页谁可以看页面	开发1.5天， 安卓源码:1天
+5.首页今天：制作MV，编辑mv,生成mv,检测本地有新图或视频， 开发4天， 安卓源码:2天  需要调研pag库是否支持生成mv
+6.时间轴列表项详情页  开发2天， 安卓源码:1.5天 
+7.大事记详情页  开发2天， 安卓源码:1.5天 
+8.引导条未记录提醒 开发1天， 安卓源码:1天 
+9.首页时间轴邀请小卡片(亲属) 开发1天， 安卓源码:0.5天 
+
+commentView
+
+HePersonalHomeView--popup
+
+BabyCircleViewHolder
+
+BabyCircleAdapter---看layout
+
+BabyCircleVideoHolder4PregnancyHome
+
+BabyCircleAdapter4Pregnancy
+
+PregnancyBabyHomeActivity---金刚区宝宝记进来的
+
+
+评论点赞编辑：SnsPopupWindow4Home
+
+
+CircleRecyclerView4Home---首页
+bbj_fragment_baby_circle_4home.xml
+
+BabyCircleHelper--首页帮助类
+
+LoadMoreView
+LoadMoreLoadingView
+
+
+
+PanelItem--育儿：流量
+BabyRecordFoldFootView折叠
+
+
+InteractionCommentView--controllerLayout
+interaction_send_alert_message_suffix--239
+
+RecordMonthFoldActivity--按年月折叠
+
+NewsDetailsPages：评论详情
+
+Babyswitchhomefragment--首页
+
+YunqiHomeContentFragment---安卓孕妈首页
+YunqiViewPagerHomeFragment
+YunqiHomeCardAdapter-->CardHomeAdapter-->
+PregnancyBabyItem--孕期首页胎宝宝
+布局:card_module_pregnancy_baby.xml
+
+1.补全放弃保存逻辑:757
+2.补全重试逻辑:794
+
+
+时间轴
+https://api-bbj.meiyou.com/v3/baby/my_baby_record?v1=8.77.0.0&common_baby_id=260649914&guide_position=1&page_size=20
+
+v3/baby/gallery---首页相册
+
+
+charlesproxy.com/getssl
+
+
+dataArray: T[] = [];
+。。。
+dataArray.splice(0, 1, data)是什么意思
+
+
+com.meiyou.seeyoubaby.circle.babycircle4home.fold.RecordMonthFoldActivity
+BBJPublishUploadController#getResourceInfo 相册选完照片可以用这个方法拿到照片时间分组显示
+
+/**
+* 获取宝宝记首页: 某条记录详情数据
+* @param common_baby_id 宝宝id
+*/
+public getBabyRecordDetailData(common_baby_id: number,record_id: number)
+
+
+数据结构 在这里 com.meiyou.seeyoubaby.circle.search.calendar.SearchRecordResult
+
+
+
+BabyEditorOnlineRecordActivity---发布页
+
+BabyEditorLabelActivity--标签编辑页
+SearchHomeResultFragment--标签列表页
+EditRecordFriendActivity--谁可以看
+
+RecordCalendarActivity--日历
+
+BigEventsActivity--大事记
+
+
+RecordCalendarActivity--按日期查找
+
+CircleTitleView4Pregnancy---胎宝宝头部
+bbj_fragment_baby_circle_4pregnancy--胎宝宝布局
+BabyCircleFragment4Pregnancy---胎宝宝
+BabyThatDaysActivity--那年今日详情
+
+BabyMonthlyRecordActivity 月度瞬间
+折叠栏
+https://apidoc.seeyouyima.com/doc/647edbd2a0c73a09e0ca2808
+com.meiyou.seeyoubaby.circle.babycircle4home.fold.RecordMonthFoldActivity
+
+
+18686202923 123456qq
+18686202923 123456aa---测试--aa123456--鹏飞
+
+16673804296--123456qq---aa123456测试
+
+dataArray: Student[] = [];
+将上述dataArray,按照Student.sid去重，返回新列表
+
+
+MediaPreviewPage
+BBJRecordListenerManager.getInstance().onRecordChange("查看大图界面删除单张图片", BBJ_RECORD_CHANGE_TYPE.删除单张图片, params);
+
+
+
+18986274692、Liyun1030--生产,测试相同
+
+
+
+NewToolsView
+这是金刚区吧
+
+18612348523--重阳
+123456aa
+
+孕期宝宝记工具与模块
+https://atc.meiyou.com/caseManager/1/5936/6952/3
+
+详情页，引导，身高体重卡片
+https://atc.meiyou.com/caseManager/1/5913/6933/3
+
+
+
+my1021681@meetyou.com	123456aa
+
+18559275659
+
+
+体温测排：TemperatureAnalysisOneActivity
+
+报告：PregnancyReportActivity
+
+
+意见：
+要加注释，变量及类方法的注释
+
+
+@所有人 各位，刚才在会议上给大家看的文档模板链接如下：
+大家可以先看下，接下来 @Owen 龙旭 会安排大家来编写（有问题群里及时沟通）
+【腾讯文档】一期验收-软件开发指导书（UI）示例 https://docs.qq.com/doc/DQWNBZXRLdkxySW1S
+【腾讯文档】二期验收-软件开发指导书（UI+业务逻辑）示例 https://docs.qq.com/doc/DQUVUaGJDZnJGYnZ0
+
+文档补充 目标：
+二期 二阶段 封板前
+文档补充 清单：
+1、一期 所有阶段（UI开发）软件开发指导书 ；
+2、二期 一阶段、二阶段（UI+业务逻辑） 软件开发指导书；
+
+
+13387547691--123456aa
+
+18772347981--邓锦-dj123456
+
+Liy@....
+
+
+13120235769
+13120385770
+
+
+
+位图保存为图片
+import photoAccessHelper from '@ohos.file.photoAccessHelper';
+import fs from '@ohos.file.fs';
+import common from '@ohos.app.ability.common';
+import promptAction from '@ohos.promptAction';
+import { image } from '@kit.ImageKit';
+
+@Entry
+@Component
+struct Index {
+@State icon: image.PixelMap | undefined = undefined;
+
+build() {
+Row() {
+Column({ space: 10 }) {
+SaveButton().onClick(async (event: ClickEvent, result: SaveButtonOnClickResult) => {
+if (result === SaveButtonOnClickResult.SUCCESS) {
+const context: common.UIAbilityContext =
+getContext(this) as common.UIAbilityContext; // 免去权限申请和权限请求等环节，获得临时授权，保存对应图片
+this.savePhotoToGallery(context);
+} else {
+promptAction.showToast({ message: '设置权限失败！' })
+}
+})
+}.width('100%')
+}.height('100%').backgroundColor(0xF1F3F5)
+}
+
+async savePhotoToGallery(context: common.UIAbilityContext) {
+const imagePackerApi: image.ImagePacker = image.createImagePacker();
+const color: ArrayBuffer =
+new ArrayBuffer(96); // 96为需要创建的像素buffer大小，取值为：height * width *4
+let opts: image.InitializationOptions = { editable: true, pixelFormat: 3, size: { height: 4, width: 6 } }
+this.icon = await image.createPixelMap(color, opts);
+image.createPixelMap(color, opts).then((pixelMap: image.PixelMap) => {
+let packOpts: image.PackingOption = { format: "image/jpeg", quality: 98 }
+imagePackerApi.packing(pixelMap, packOpts).then(async (buffer: ArrayBuffer) => {
+console.info('Succeeded in packing the image.');
+let helper = photoAccessHelper.getPhotoAccessHelper(context)
+let uri = await helper.createAsset(photoAccessHelper.PhotoType.IMAGE,
+'png') // 使用uri打开文件，可以持续写入内容，写入过程不受时间限制
+let file = await fs.open(uri, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE)
+try {
+context.resourceManager.getMediaContent($r('app.media.startIcon').id, 0)
+.then(async value => {
+let media = value.buffer;
+// 写到媒体库文件中
+await fs.write(file.fd, media);
+await fs.close(file.fd);
+promptAction.showToast({ message: '已保存至相册！' });
+});
+}
+catch (err) {
+console.error("error is "+ JSON.stringify(err))
+}
+})
+})
+}
+}
+
+袁世平：13387547651-123456aa
+
+uinput用于输入模拟操作
+按下和弹起键值为2的按键(即back键)
+https://blog.csdn.net/u010274449/article/details/138899641
+
+back键：
+>hdc shell uinput -K -d 2 -u 2        
+
+
+my102148@meetyou.com  aa123456 
+
+13000000009 123456aa
+
+14000000009 
+
+数宫缩
+GongSuoActivity
+
+
+BaseWeekChangedActivity---宝宝周变化
+MotherBabyWeekChangedActivity ---妈宝周变化
+MotherBabyInfoRvAdapterV3---妈宝变化
+
+
+14411441001--aa123456
+13000000001--123456aa
+
+
+http://pk.meiyou.com:8080/view/harmonyos/job/HarmonyOS-1.5.0/
+liyun1030@126.com/liyunlong
+
+
+儿歌故事：
+EducationAssistantActivity
+EducationAssistantFragment--首页注意有重名
+搜索：
+EarlyEduSearchActivity
+
+音乐播放器
+MusicPlayerActivity
+
+播放详情页
+PlayDetailActivity
+
+识字卡片
+EducationAssistantCardEvent
+
+EducationAssistantRecommendFragment--精选
+EducationAssistantAlbumFragment--儿歌故事
+
+随便找个性能好的 quic库，比如msquic，tquic然后封装几个napi给上层调用呀。不需要系统支持。
+
+
+最近播放列表--RecentActivity
+最新上架列表
+RecentActivity---
+
+
+AOP全局业务框架设计，助力高薪岗位入职
+
+今晚主讲内容：
+1.class文件结构与原型分析
+2.arkTS插桩原理分析
+3.method代码注入实现
+4.编译时核心技术Hvigor
+5.插件开发实战分析
+@全体成员 
+今晚8点直播课程地址：https://ab.shanhuclass.cn/c/9QvTZIjZ2
+
+https://gitlab.meiyou.com/Harmony
+
+
+
+git@gitlab.meiyou.com:Harmony/sdk.git;common/sdk;master;;linwuhan
+git@gitlab.meiyou.com:Harmony/uikit.git;common/uikit;master;;linwuhan
+
+https://gitlab.meiyou.com/Harmony/sdk.git;common/sdk;master;;linwuhan
+https://gitlab.meiyou.com/Harmony/uikit.git;common/uikit;master;;linwuhan
+
+
+https://gitlab.meiyou.com/Harmony/sdk.git;common/sdk;release-1.7.0;;linwuhan
+https://gitlab.meiyou.com/Harmony/uikit.git;common/uikit;release-1.7.0;;linwuhan
+
+
+https://gitlab.meiyou.com/Harmony/sdk.git;common/sdk;master;;linwuhan
+https://gitlab.meiyou.com/Harmony/uikit.git;common/uikit;master;;linwuhan
+
+
+hdc list targets

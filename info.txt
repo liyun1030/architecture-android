@@ -1,0 +1,1221 @@
+git信息：
+
+hap源码
+https://gitlab01.archermind.com/harchermindy/system_app_fork_from_harcheros
+
+
+鸿志仓库
+https://gitlab01.archermind.com/harchermindy/harcheros
+
+
+鸿志的分支和代码仓库
+https://gitlab01.archermind.com/harchermindy/harcheros/em_r18_hongzos_2_0_system_hap/-/tree/OpenHarmony-3.2-Release-HarcherOS
+
+
+yunb.li@archermind.com
+邮箱密码：liy@1030-Liy@1030
+每日编译镜像地址
+\\10.51.11.95\daily\rom\
+
+
+
+版本编译wiki
+http://10.51.11.95:8080/wiki/
+
+
+
+代码根目录在
+/mnt/sda1 这里
+这个是3.2 鸿志版本，源码仓库地址与分支地址
+https://gitlab01.archermind.com/harchermindy/system_app_fork_from_harcheros/applications_settings/-/tree/yidao-3.2.1-Release
+
+
+pda和r18是共基线
+
+
+nodejs：Node.js版本要求为v14.19.1及以上，且低于v17.0.0，对应的npm版本要求为6.14.16及以上
+
+nodejs版本
+node -v
+v16.20.1--v14.19.1
+npm:6.14.16，ecodev中的npm版本为8.19.4
+下载版本
+npm install npm@6.14.16 -g 
+npm -v查看版本
+
+nodejs镜像：https://mip.yht7.com/news/313519
+
+npm config set registry https://registry.npm.taobao.org
+
+npm ---yarnhttps://registry.yarnpkg.com/
+
+https://mirrors.cloud.tencent.com/npm/tencent ------
+chpm ---https://r.cnpmjs.org/
+https://registry.npmmirror .com/taobao ------npmMirror ---- https://skimdb.npmjs.com/registry/
+
+
+
+
+
+霏哥本地编译环境
+\\10.51.11.226
+archermind/archermind
+
+
+xshell
+替换full-sdk
+删除9目录下的5个文件夹，对应的拷进去，然后进入ets/build-tools/ets-loader/下，nmp install
+
+你们替换full sdk后，可能有些系统应用还是编译不过，原因是我们鸿志的系统里，新增了一些自己的sdk接口，我们自己新增的sdk接口对应的ets根目录的仓库地址：
+https://gitlab01.archermind.com/harchermindy/system_app_fork_from_harcheros/ets
+分支：
+yidao-3.2.1-Release
+yidao-4.0-Release
+
+替换完成后，到exchange目录下，双击执行此bat
+
+1.清楚源码仓库地址，镜像编译仓库地址，我们使用的分别是什么分支
+2.full-sdk的替换
+3.编译系统应用
+4.替换系统应用，并在我的环境里（10.51.11.226）编译源码，烧录镜像，验证修改
+
+编译源码命令:
+http://10.51.11.95:8080/wiki/
+cd mnt/sda1
+cd v4.0
+第一个人编：bash build/prebuilts_download.sh --skip-ssl
+
+
+./build.sh --product-name rk3568 --device-name em_r18_hongzos_2_0 --ccache --jobs $(nproc) product-release
+
+
+
+./build.sh product_name=rk3568 system_size=standard target_subsystem=arkui
+./build.sh product_name=rk3568 system_size=standard suite=acts target_subsystem=arkui
+
+
+
+
+./build.sh --product-name rk3568 --device-name em_pda_hongzos_2_0 --ccache --jobs $(nproc) product-release
+
+
+周报地址：
+【腾讯文档】武汉-应用团队
+https://docs.qq.com/sheet/DQWx0Skd0alBGdFlX?tab=uzf93m
+周报周五下班前完成即可，需要填写人员投入，近期事务跟踪（增量填写，每个人都会写，编号继续往下即可）
+
+每周工作计划为每天早上填写，写本日重点工作。地址：
+【腾讯文档】每周工作计划
+https://docs.qq.com/sheet/DQWJSV1dFTmRKV05V?tab=BB08J2
+
+
+
+gitee
+账号：anjie.zhang@archermind.com
+密码：eaf38610.
+
+
+\\10.51.11.137\Share
+archermind/archermind
+
+
+查看U盘
+cd /mnt/external/
+
+截屏
+
+
+
+android镜像
+亿道平板
+X:\daily\android\
+
+su root
+
+拉hci蓝牙日志
+hm
+ hdc file recv /data/bluetooth/log/snoop.log snoop
+
+android 
+adb pull /data/misc/bluetooth/logs/btsnoop_hci.log 1234.log
+
+
+刘振的蓝牙鼠票：Basilisk X
+刘烁的蓝牙鼠标：HUAWEI MOUSE WYN
+
+查看系统安装列表--预安装
+\\10.51.11.226\Share\v4.0\vendor\hihope\rk3568\preinstall-config\hongzos_2_0
+
+
+如果没有进入adb，先进入：1）adb shell 2）查看bt_stack.conf文件：cat /etc/blutooth/bt_stack.conf ，如果没有设置路径使用第一种提到的方式是无法导出来的，
+也说明/data路径的权限是不可读的（也可以通过ls -l查看权限）。
+
+第三种方式：基于前面的两种方式都没有导出HCI log，可以通过bug report的方式导出，查看是否包含有HCI log，如导出到桌面：
+adb bugreport D:\hci\1123\
+HCI log在如下路径：xxxx\FS\data\misc\bluetooth\logs
+android镜像：
+\\10.51.11.95\daily
+
+
+查看当前任务栈:
+hdc shell hidumper -s 10 -a surface | grep surface
+
+在控制台中输入如下命令，查看当前的系统服务列表
+hdc shell hidumper -ls
+
+查看系统网络信息
+hidumper --net
+
+查看系统进程信息
+hidumper -p
+
+查看系统内存信息
+hidumper -mem
+
+安装应用
+hdc app install .\phone-launcher-default-signed.hap
+
+卸载应用
+hdc app uninstall com.ohos.myapplication
+
+查看日志
+hdc hilog
+
+获取UUID
+hdc shell bm get --udid
+
+
+杀掉hdc进程，类似adb kill-server
+hdc kill
+
+重启hdc
+hdc start -r
+
+重启设备
+hdc shell reboot
+
+android系统
+adb reboot loader
+
+
+查看设备
+hdc list targets
+
+HiDumper是OpenHarmony中为开发、测试人员，IDE工具提供统一的系统信息获取工具，帮助使用者分析，定位问题。
+HiDumper主要包括以下几个主要模块：
+hidumper：可执行程序，工具入口，在板上可通过hidumper执行对应命令
+hidumperclient：动态库，提供framework层接口
+lib_dump_usage：动态库，提供framework层功能实现
+hidumperservice：动态库，sa服务，提供service层功能实现
+
+
+git pull --force
+
+
+git删除本地和远程分支
+删除本地分支可以使用以下命令：
+
+git branch -d <branch_name>：删除本地分支，如果分支已经被合并到其他分支，则会成功删除；如果分支未被合并到其他分支，则会提示无法删除。
+
+git branch -D <branch_name>：强制删除本地分支，无论该分支是否已经被合并到其他分支，都会被强制删除。
+
+删除远程分支可以使用以下命令：
+
+git push origin --delete <branch_name>：删除远程分支，将其从远程仓库中删除。
+
+git push origin :<branch_name>：也可以使用该命令删除远程分支，将其从远程仓库中删除。
+
+注意：以上命令在执行删除操作之前，请确保当前分支不是需要删除的分支，以免删除错误分支。
+
+
+
+要撤销Git中的add操作，可以使用以下命令：
+git reset HEAD <文件名>
+表示需要撤销添加到暂存区的文件
+
+
+要撤销 Git commit 的操作可以使用 git revert 或者 git reset。
+如果想要保留之前提交的更改并创建新的提交来撤销特定的 commit，则可以使用 git revert <commit> 命令。这将会生成一个新的提交，该提交包含了对指定 commit 所做的更改的反向修改。示例代码如下：
+
+$ git revert abcdefg   # abcdefg 为需要撤销的 commit ID
+git reset head~
+
+
+查询指定Bundle名称的详细信息
+bm dump -n com.ohos.camera
+
+
+获取uuid
+hdc shell bm get --udid 或 hdc shell bm get -u
+
+
+地址：\\10.51.11.226
+目录：\Share\v4.0
+账号：archermind
+密码：archermind
+pad：images_ohos_v4_0_em_r18_hongzos_3_0_archermind.img
+pda：images_ohos_v4_0_em_pda_hongzos_3_0_archermind.img
+
+
+sdk目录
+\\10.51.11.226\Share\5.0.0R
+
+
+
+feat[application][General]:callui-wings架构需求合入
+
+
+
+Git常用操作命令：
+1 ) 远程仓库相关命令
+
+检出仓库：$ git clone git://github.com/jquery/jquery.git
+查看远程仓库：$ git remote -v
+添加远程仓库：$ git remote add [name] [url]
+删除远程仓库：$ git remote rm [name]
+修改远程仓库：$ git remote set-url --push [name] [newUrl]
+拉取远程仓库：$ git pull [remoteName] [localBranchName]
+推送远程仓库：$ git push [remoteName] [localBranchName]
+
+如果想把本地的某个分支test提交到远程仓库，并作为远程仓库的master分支，或者作为另外一个名叫test的分支，如下：
+$git push origin test:master // 提交本地test分支作为远程的master分支
+$git push origin test:test // 提交本地test分支作为远程的test分支
+
+2）分支(branch)操作相关命令
+
+查看本地分支：$ git branch
+查看远程分支：$ git branch -r
+创建本地分支：$ git branch [name] ----注意新分支创建后不会自动切换为当前分支
+切换分支：$ git checkout [name]
+创建新分支并立即切换到新分支：$ git checkout -b [name]
+删除分支：$ git branch -d [name] ---- -d选项只能删除已经参与了合并的分支，对于未有合并的分支是无法删除的。如果想强制删除一个分支，可以使用-D选项
+合并分支：$ git merge [name] ----将名称为[name]的分支与当前分支合并
+创建远程分支(本地分支push到远程)：$ git push origin [name]
+
+
+删除远程分支：
+1.$ git push origin :heads/[name] 或 $ gitpush origin :[name]
+如： git push origin :OpenHarmony-5.0-Release-HarcherOS-ly
+2.使用
+git push origin --delete branch_name
+
+
+
+
+
+创建空的分支：(执行命令之前记得先提交你当前分支的修改，否则会被强制删干净没得后悔)
+$git symbolic-ref HEAD refs/heads/[name]
+$rm .git/index
+$git clean -fdx
+
+3）版本(tag)操作相关命令
+
+查看版本：$ git tag
+创建版本：$ git tag [name]
+删除版本：$ git tag -d [name]
+查看远程版本：$ git tag -r
+创建远程版本(本地版本push到远程)：$ git push origin [name]
+删除远程版本：$ git push origin :refs/tags/[name]
+合并远程仓库的tag到本地：$ git pull origin --tags
+上传本地tag到远程仓库：$ git push origin --tags
+创建带注释的tag：$ git tag -a [name] -m 'yourMessage'
+
+4 ) 子模块(submodule)相关操作命令
+
+添加子模块：$ git submodule add [url] [path]
+如：$git submodule add git://github.com/soberh/ui-libs.git src/main/webapp/ui-libs
+初始化子模块：$ git submodule init ----只在首次检出仓库时运行一次就行
+更新子模块：$ git submodule update ----每次更新或切换分支后都需要运行一下
+删除子模块：（分4步走哦）
+
+$ git rm --cached [path]
+编辑“.gitmodules”文件，将子模块的相关配置节点删除掉
+编辑“ .git/config”文件，将子模块的相关配置节点删除掉
+手动删除子模块残留的目录
+
+
+
+git将远程分支拉到本地
+git checkout -b  yidao-3.2.1-Release origin/yidao-3.2.1-Release
+
+在git中，将远程分支拉到本地有以下几种实现方法：
+
+方法一：git fetch
+
+可以使用git fetch命令将远程分支的更新获取到本地，但不会自动合并到当前分支。下面是具体的步骤：
+
+使用命令 git fetch 远程仓库地址，例如：git fetch origin，这将获取到所有远程分支的更新。
+
+查看所有远程分支列表，可以使用命令 git branch -r。
+
+从远程分支创建本地分支，并切换到该分支。例如，如果要拉取origin的develop分支，可以使用命令 git checkout -b develop origin/develop。
+
+方法二：git pull
+
+git pull命令用于从远程仓库获取最新的提交，并自动合并到当前所在的分支。下面是具体的步骤：
+
+使用命令 git pull 远程仓库地址 分支名，例如：git pull origin develop，这将获取并合并远程分支origin/develop到当前分支。
+
+如果本地分支已经存在，并且希望与远程分支保持同步，可以使用命令 git pull --rebase 远程仓库地址 分支名，例如：git pull --rebase origin develop。
+
+方法三：git clone
+
+如果仓库还没有克隆到本地，可以使用git clone命令直接克隆整个仓库，包括所有的分支。下面是具体的步骤：
+
+使用命令 git clone 远程仓库地址，例如：git clone git://github.com/example/repo.git，这将把整个仓库克隆到本地。
+
+
+如果你想将本地分支 feature 推送到远程分支 origin/feature，可以运行以下命令：
+
+git push origin feature:origin/feature
+
+
+回退上一个版本
+git log
+git reset --hard HEAD^
+git reset --hard b2dd8007a1
+
+git push --force
+
+git reset --hard 会彻底重置工作目录、暂存区和提交历史，而 git reset --soft 仅重置提交历史，保留工作目录和暂存区的修改。‌
+两者的核心差异体现在对代码状态的保留或丢弃上：
+
+
+
+使用 `git remote -v` 可以列出所有远程仓库及其URL。
+如果只想查看指定的远程仓库地址，可以使用 `git remote get-url
+
+
+archermind@archermind-ThinkCentre-M930t-N000:/mnt/sda1/v3.2/applications/standard$ repo sync -c -j4
+
+
+# mount | grep 96CD-B535
+/dev/block/vol-8-1 on /mnt/external/96CD-B535 type vfat (ro,relatime,uid=1006,gid=1006,fmask=0007,dmask=0007,allow_utime=0020,codepage=936,iocharset=utf8,shortname=mixed,errors=remount-ro)
+
+此mount命令详解
+解析该命令的输出如下：
+
+/dev/block/vol-8-1: 表示该文件系统对应的设备节点路径为 /dev/block/vol-8-1。
+
+on /mnt/external/96CD-B535: 表示该文件系统挂载在 /mnt/external/96CD-B535 目录下。
+
+type vfat: 表示该文件系统类型为 VFAT。
+
+(ro,relatime,uid=1006,gid=1006,fmask=0007,dmask=0007,allow_utime=0020,codepage=936,iocharset=utf8,shortname=mixed,errors=remount-ro): 表示该文件系统的挂载选项，具体含义如下：
+
+ro: 表示挂载为只读（Read-Only）模式。
+relatime: 表示使用相对访问时间。
+uid=1006,gid=1006: 表示该文件系统的用户 ID (UID) 和组 ID (GID)。
+fmask=0007,dmask=0007: 表示文件和目录的权限掩码。
+allow_utime=0020: 表示允许用户更新文件的最后访问时间。
+codepage=936: 表示文件系统的代码页。
+iocharset=utf8: 表示使用 UTF-8 字符集进行输入输出字符编码转换。
+shortname=mixed: 表示使用混合短文件名格式。
+errors=remount-ro: 表示在出现错误时重新挂载为只读模式。
+综上所述，这条 mount 命令的输出告诉我们设备 /dev/block/vol-8-1 中的 VFAT 文件系统已经以只读模式挂载到目录 /mnt/external/96CD-B535 下，并显示了该文件系统的一些挂载选项。
+
+
+for await(let item of list){
+...
+}
+if ((difDirs ?? []).length === 0) {
+        this.restoreMode();
+      }
+双问号判断
+
+如果路径有//可能会导致复制后的文件大小为0
+
+
+手动挂载
+mkdir /data/sda1
+mount /dev/block/sda1  /data/sda1
+ls /data/sda1
+自动挂载
+
+在编系统镜像时，先删除
+W:\v3.2\out\rk3568\packages\phone\system\app
+
+
+
+ hdc file recv /data/bluetooth/log/snoop.log snoop.log
+
+hdc file send test.tar /mnt/hmdfs/100/account/device_view/local/files/Download
+hdc file send phone-default-signed.hap /system/app/com.ohos.settings/Settings.hap
+tar -xvf test.tar 
+
+
+bm工具
+https://blog.csdn.net/QliumengQ/article/details/135410612
+
+
+api11的demo可以跑起来。换了下launcher起不来还得看看。
+
+1. ci下载api11 full sdk(不用执行npm install；配置ohpm环境变量)
+2. 600编译器新建或开启已有工程，选择api10构建完成。然后再修改成11后同步，执行编译
+3. 新建应用安装后点击无法启动，执行hdc shell  param set const.security.developermode.state 1
+
+hdc shell  param set const.security.developermode.state 1
+
+
+bm install -h	显示install支持的命令信息
+bm install -p	安装hap包，支持指定路径和多个hap同时安装
+bm install -p -u	给指定用户安装hap包
+bm install -r -p	覆盖安装
+bm install -r -p -u	给指定用户覆盖安装
+
+md5sum 命令查看md5
+
+hdc app install .\phone-launcher-default-signed.hap
+
+
+华为开发者套件
+384516108@qq.com
+KZ4762812kz1397
+
+
+查看预安装应用：
+hdc file recv system/etc/app/install_list_capability.json
+
+
+10.51.11.137
+archermind/archermind
+
+10.51.11.141
+xiongwei/123456
+\3566\4 下面
+
+
+10.51.11.226(feige)
+archermind/archermind
+
+获取udid:hdc shell bm get --udid
+
+chls证书:charlesproxy.com/getssl
+
+git查看代码行数
+git ls-files | xargs cat | wc -l
+
+
+yunb.li@archermind.com
+wiki:n034240-Liy@1030...--Liy@1030
+
+svn：n034240/Liy@1030
+
+git账号:n034240--Liy@....(此对)
+
+http://10.51.11.95:8080/rom_4_1_ohos/20241203-1140/
+
+git config --global pull.rebase true----设置一下这个，pull的时候，不会产生merge信息
+
+private listener: inspector.ComponentObserver = inspector.createComponentObserver('Swiper_ID');来监听是否绘制完view
+
+可以使用setSpecificSystemBarEnabled来隐藏导航条。使用时使用最新的beta2手机系统版本。
+参考文档：https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/js-apis-window-V5#setspecificsystembarenabled11
+
+
+ignore不生效
+git rm -r --cached .
+git add .
+git commit -m "update .gitignore"
+
+
+git clone -b dev <远程仓库地址>
+git checkout -b dev origin/dev
+
+git branch -m feature1 newfeature1//修改分支
+
+1、 使用 git clone 命令时，通过 -b 参数指定要拉取的分支：
+git clone -b <branch-name> --single-branch <repository-url>
+-b <branch-name>：指定你想要克隆的分支名称。
+--single-branch：告诉Git只克隆指定的分支。
+<repository-url>：仓库的URL地址。
+示例
+如果你想克隆GitHub上某个仓库的feature-branch分支，命令将类似于：
+git clone -b feature-branch --single-branch https://github.com/username/repository.git
+
+
+使用工具
+FileZilla
+下载链接：
+https://www.filezilla.cn/download/client
+推荐使用绿色版，免安装
+
+账号信息：
+FTP的地址：ftp://ftp.archermind.com
+FTP账号：ftphongz
+FTP密码：hz@20240124
+端口号：9021
+
+
+xlsx.js（SheetJS）和exceljs 和office.js
+
+
+flutter sdk配置：
+https://gitee.com/openharmony-sig/flutter_flutter
+ # mac环境
+ export TOOL_HOME=/Applications/DevEco-Studio.app/Contents # mac环境
+ export DEVECO_SDK_HOME=$TOOL_HOME/sdk # command-line-tools/sdk
+ export PATH=$TOOL_HOME/tools/ohpm/bin:$PATH # command-line-tools/ohpm/bin
+ export PATH=$TOOL_HOME/tools/hvigor/bin:$PATH # command-line-tools/hvigor/bin
+ export PATH=$TOOL_HOME/tools/node/bin:$PATH # command-line-tools/tool/node/bin
+
+ # windows环境
+ TOOL_HOME = D:\devecostudio-windows\DevEco Studio
+ DEVECO_SDK_HOME=%TOOL_HOME%\sdk
+ PATH=%TOOL_HOME%\tools\ohpm\bin
+ PATH=%TOOL_HOME%\tools\hvigor\bin
+ PATH=%TOOL_HOME%\tools\node
+
+export PUB_CACHE=D:/PUB
+ export PATH=<flutter_flutter path>/bin:$PATH
+ export PUB_HOSTED_URL=https://pub.flutter-io.cn
+ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+
+ #依赖缓存
+ export PUB_CACHE=D:/PUB(自定义路径)
+
+ # 国内镜像
+ export PUB_HOSTED_URL=https://pub.flutter-io.cn
+ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+
+ # 拉取下来的flutter_flutter/bin目录
+ export PATH=/home/<user>/ohos/flutter_flutter/bin:$PATH
+
+ # HamonyOS SDK
+ export TOOL_HOME=/Applications/DevEco-Studio.app/Contents # mac环境
+ export DEVECO_SDK_HOME=$TOOL_HOME/sdk # command-line-tools/sdk
+ export PATH=$TOOL_HOME/tools/ohpm/bin:$PATH # command-line-tools/ohpm/bin
+ export PATH=$TOOL_HOME/tools/hvigor/bin:$PATH # command-line-tools/hvigor/bin
+ export PATH=$TOOL_HOME/tools/node/bin:$PATH # command-line-tools/tool/node/bin
+
+
+镜像源：
+npm config set registry https://registry.npmmirror.com/
+npm config set registry https://npm.aliyun.com/
+npm config set registry https://registry.npm.taobao.org
+
+
+FileZilla
+下载链接：
+https://www.filezilla.cn/download/client
+推荐使用绿色版，免安装
+
+账号信息：
+FTP的地址：ftp://ftp.archermind.com
+FTP账号：ftphongz
+FTP密码：hz@20240124
+端口号：9021
+
+daily
+http://10.51.11.185/wiki
+
+
+hdc shell hilog | grep com.meiyou.hmapp > D:\123.txt,如果grep不行，换成findStr
+
+
+
+把一个新目录作为git提交流程：
+git init 
+git add xxx
+git commit -m xxx
+git remote add origin xxx.git
+git push -u origin master
+
+
+已有仓库
+cd existing_git_repo
+git remote add origin https://gitee.com/1030/CPlusPlus_Project.git
+git push -u origin "master"
+
+
+
+git commit了但未push,可以这样：
+git reset HEAD~1
+
+
+DGS账号密码:18986274692/PASS88
+
+
+git config --global --add safe.directory D:/openharmony_ws/OpenHarmony-5.0-Release-HarcherOS/applications_call/applications_call
+
+
+老分支
+https://gitlab01.archermind.com/harchermindy/openharmony/applications_settings
+
+新分支
+https://gitlab01.archermind.com/harchermindy/harcheros/applications_settings
+
+git pull文件太长
+ git config --system core.longpaths true
+
+强制
+git checkout -f -f xxx origin/xxx
+
+
+hdc target mount
+
+
+使用命令hdc shell param get const.ohos.apiversion查询当前设备的api版本，对比看下工程级build-profile.json5配置的compatibleSdkVersion字段api版本
+
+
+
+repo init -u git@gitlab01.archermind.com:harchermindy/harcheros/manifest.git -b OpenHarmony-5.1.0-Release-HarcherOS
+
+
+
+
+hdc shell hidumper -s 10 -a screen@见字如面 获取分辨率
+
+
+
+一级目录data/：代表应用文件目录。
+
+二级目录storage/：代表本应用持久化文件目录。
+
+三级目录el1/~el5/：代表不同文件加密类型。
+
+EL1(Encryption Level 1):
+
+保护设备上的所有文件的基础安全能力。在设备开机后，不需要用户先完成身份认证即可访问EL1保护的文件。如无特殊必要，不推荐使用该方式。
+如果直接窃取设备存储介质上的密文，攻击者无法脱机进行解密。
+EL2(Encryption Level 2):
+
+在EL1的基础上，增加首次认证后的文件保护能力。设备开机后，用户在通过首次认证后，通过EL2能力保护的文件才能被访问。此后只要设备没有关机，通过EL2能力保护的文件一直可被访问。推荐应用默认使用该方式。
+如果在关机后丢失手机，则攻击者无法读取通过EL2能力保护的文件。
+EL3(Encryption Level 3):
+
+与EL4整体能力类似，但和EL4的区别是，在锁屏下可创建新的文件，但无法读取。如无特殊必要，无需使用该方式。
+EL4(Encryption Level 4):
+
+在EL2的基础上，增加设备锁屏时的文件保护能力。在用户锁屏时，通过EL4能力保护的数据将无法被访问。如无特殊必要，无需使用该方式。
+如果设备在锁屏状态下被盗，攻击者无法读取通过EL4能力保护的文件。
+EL5(Encryption Level 5):
+
+在EL2的基础上，增加设备锁屏时的文件保护能力。在用户锁屏后，满足一定条件时，通过EL5能力保护的数据将无法被访问，但可以继续创建和读写新的文件。如无特殊必要，无需使用该方式。
+默认情况下不会生成EL5的相关目录，需要配置访问E类加密数据库的相关权限，详见E类加密数据库的使用。
+说明：
+
+应用如无特殊需要，应将数据存放在el2加密目录下，以尽可能保证数据安全。但是对于某些场景，一些应用文件需要在用户首次认证前就可被访问，例如时钟、闹铃、壁纸等，此时应用需要将这些文件存放到设备级加密区（el1）。
+
+开发者可通过监听COMMON_EVENT_USER_UNLOCKED事件感知当前用户首次认证完成。
+
+切换应用文件加密类型目录的方法请参见获取和修改加密分区。
+
+四级、五级目录： 通过ApplicationContext可以获取distributedfiles目录或base下的files、cache、preferences、temp等目录的应用文件路径，应用全局信息可以存放在这些目录下。
+
+通过UIAbilityContext、AbilityStageContext、ExtensionContext可以获取HAP级别应用文件路径。HAP信息可以存放在这些目录下，存放在此目录的文件会跟随HAP的卸载而删除，不会影响App级别目录下的文件。在开发态，一个应用包含一个或者多个HAP
+
+
+
+
+
+hdc bm install -p 
+
+删除之前的缓存
+git rm --cached oh-package-lock.json5
+
+
+
+功能开关类添加
+修改某个的commit信息,只能是最新一次
+git commit --amend -m "feat[application][General]功能开关类添加"
+
+
+# 查看作者为 liyun 的最近 10 次提交信息
+git log --author="ly1030" -n 10
+
+git config user.name "李云n034240"
+git config user.email "youremail@example.com"
+
+暂存未暂存的更改：使用 git stash 命令将未暂存的更改保存到一个临时栈中
+
+
+我们来合并最近的 4 次提交纪录，执行：
+git rebase -i HEAD~4
+
+如果你异常退出了 vi 窗口，不要紧张：
+
+git rebase --edit-todo
+这时候会一直处在这个编辑的模式里，我们可以回去继续编辑，修改完保存一下：
+
+git rebase --continue
+
+你安装的时候看下 权限 bm dump -n xxx包名
+bm dump -n com.ohos.settings | grep -i isSystemApp
+
+
+SymbolGlyph小图标显示动效
+
+hdc shell
+killall bootanimation就好了
+
+ZHGC大家的应用有往这里合吗？
+横、竖通用的：https://gitlab01.archermind.com/harchermindy/harcheros_app/default_system_hap/-/tree/OpenHarmony-5.1.0-Release-HarcherOS?ref_type=heads
+
+竖屏的：https://gitlab01.archermind.com/harchermindy/harcheros_app/vertical_hap/-/tree/OpenHarmony-5.1.0-Release-HarcherOS?ref_type=heads
+
+hdc bm install -p xxx.hap
+
+如果安装应用报code:9568389 error: unknown.
+rm -rf data/*
+reboot
+
+
+
+hdc shell
+ifconfig
+192.168.3.132
+
+hdc tconn xxx.xxx.xxx.xxx:10178
+
+hdc tconn 192.168.3.132:8080
+
+断开
+hdc tconn 192.168.3.64:8080 -remove
+
+bm dump -n com.ohos.settings | grep -i isSystemApp
+
+
+hdc bm install -p D:\openharmony_ws\OpenHarmony-5.0-Release\applications_settings_main\applications_settings\product\phone\build\default\outputs\default\phone-default-signed.hap
+
+
+
+//UDID获取命令
+  hdc shell bm get -u
+
+查看仓库地址
+git remote -v
+
+
+ohpm命令：
+https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/ide-ohpm-list-V5
+
+ohpm clean
+ohpm cache clean
+ohpm install
+
+
+
+电话
+
+hdc bm install -p D:\openharmony_ws\OpenHarmony-5.0-Release\applications_call\applications_call\entry\build\default\outputs\default\callui-default-signed
+
+hdc bm install -p D:\openharmony_ws\OpenHarmony-5.0-Release\applications_call\applications_call\mobiledatasettings\build\default\outputs\default\mobiledatasettings-callui-default-signed.hap
+
+
+查看应用信息
+现在我们需要去看一下我们的权限是否都正常授权了？
+使用bm dump –n
+查看是否为系统应用 isSystemApp
+bm dump -n com.my.myapi_15 | grep -i isSystemApp
+
+
+额外添加这个权限主要是为了来讲解user_grant权限配置方法。
+此时我们需要额外的去配置这个权限，前提是我们要先获取应用指纹：
+先打开日志：
+hilog -Q pidoff
+hilog -b D
+hilog -p off
+hilog | grep -i finger&
+再安装一次应用，查看日志：
+
+
+手机应用数据库地址
+data/app/el2/100/database
+
+pad:
+storage/media/100/local/file
+
+相册数据
+mnt/hmdfs/100/account/device_view/local/files/photo/16/xxx
+
+表：
+photos：图库:/storage/cloud/files/Photo/16/VID_1502152035_000.mp4 /storage/cloud/files/Photo/16/IMG_1502152104_000.jpg  /storage/cloud/files/Photo/1/IMG_1502152106_001.jpg
+photoAlbum:相册
+
+files：所有文件表
+
+album_plug:详细说明
+contact:联系人表
+
+
+查找数据库：
+find . -name "net_stats*"
+./service/el1/public/netmanager/net_stats_data.db
+
+
+
+可以列出系统中的所有包名
+（pm：package manager）
+adb shell pm list packages
+
+
+在终端输入“” 可以查看系统当前正运行的软件包名
+adb shell dumpsys activity  | find 'mFocusedActivity' 
+
+
+将window中的文件上传到Android的/data目录：
+
+adb push C:A\1.txt /data
+1
+将安卓系统的文件下载到本地，一般多个文件可以先打包，然后下载安装包
+
+adb pull /data/文件名 C:A\
+
+
+抓取日志的步骤
+
+开启输出日志
+# 输出日志到本地C盘A目录下，命名为test.log
+adb logcat > C:\A\test.log
+1
+2
+执行App相关操作，进行测试
+结束日志
+分析截取日志（包名和日志级别）
+
+# 输入包含版本详细信息和日期的日志
+adb logcat -v time 
+1
+2
+# 将日志保存到本地，注意本地路径需要存在，否则将失败
+adb logcat -v time > 本地路径
+1
+2
+logcat是最常见的用于对ANR和crash问题的分析和定位，需要将产生问题后的日志下载到本地，对于ANR通过“ANR in”搜索定位，对于crash通过“force finishing”来搜索定位。
+
+# 将trace文件下载到本地
+adb pull /data/anr/traces.txt 本地路径
+adb shell dumpsys activity  | find 'mFocusedActivity' 
+adb shell dumpsys window windows | grep -E 'mCurrentFocus'
+adb shell dumpsys activity activities | grep "mFocusedActivity"
+
+adb shell dumpsys package com.hardhitter.screen | grep -i activity获取启动activity名
+
+adb shell dumpsys package com.hardhitter.screen | grep -E "Activity|name="
+
+
+
+adb shell dumpsys package com.lingan.seeyou | grep -E "Activity|name="
+
+
+
+过滤日志
+hdc shell hilog | grep isON
+
+ ps -ef | grep -i com.ohos.callui
+ps -ef：
+ps是 “process status” 的缩写，用于查看当前系统中的进程状态。
+-e选项表示显示所有进程，包括系统进程和用户进程。
+-f选项表示以完整格式显示进程信息，包括进程的用户 ID、父进程 ID、启动时间、命令行等详细信息。
+|：这是管道符号，用于将ps -ef命令的输出作为grep -i com.ohos.callui命令的输入。
+grep -i com.ohos.callui：
+grep是 “global regular expression print” 的缩写，用于在文本中搜索指定的模式。
+-i选项表示忽略大小写，即不区分com.ohos.callui的大小写形式，只要文本中包含该字符串，无论大小写都会被匹配到。
+com.ohos.callui是要搜索的字符串模式，这里是查找包含com.ohos.callui的进程信息
+
+
+bm dump -n com.ohos.callui
+该命令主要用于获取名为 com.ohos.callui 的应用或进程的相关调试信息。bm 是鸿蒙系统里用于进行内存管理和进程信息转储的工具，
+dump 是 bm 工具的一个子命令，其作用是输出指定应用或进程的详细信息，-n 参数用于指定要转储信息的应用或进程的包名，这里指定的包名是 com.ohos.callui。
+
+根据pid
+netstat -ano|findstr 9868，找到 ip 及端口
+
+svn:
+https://svnwh01.archermind.com/svn/WHHC/02 鸿蒙系统/02 项目归档/83 面向宜安压铸场景的工业平板操作系统软件攻关项目/02 设计文档
+
+https://svnwh01.archermind.com/svn/WHHC/02 鸿蒙系统/02 项目归档/83 面向宜安压铸场景的工业平板操作系统软件攻关项目/02 设计文档/设置/模式
+
+
+
+/system/app/com.ohos.settings/Settings.hap
+
+hdc shell hilog >123.txt
+# find . -name "net_stats_data.db"
+./service/el1/public/netmanager/net_stats_data.db
+
+查找
+find . -name "com.ohos.callui"
+
+拉数据库到本地
+hdc file recv /data/service/el1/public/netmanager/net_stats_data.db .
+
+查询安装包信息
+https://docs.openharmony.cn/pages/v5.0/zh-cn/application-dev/tools/bm-tool.md
+
+
+ bm dump -n com.ohos.callui
+安装hap
+bm install -p  CallUI.hap
+
+/system/app/com.ohos.callui
+
+acl权限管理
+https://segmentfault.com/q/1010000045142389
+
+默认授权
+etc/app/install_list_capability.json
+
+
+\\192.168.102.110
+
+
+/system/etc/param/hdc.para 有初始值
+
+
+
+
+群公告
+25年工作规划与24年总结
+https://kdocs.cn/l/clVODWt5T7k1
+周报：https://docs.qq.com/sheet/DYkpBdHFEYXdleEdo?tab=uzf93m
+5.x应用版本号维护及武汉应用人力安排表https://docs.qq.com/sheet/DYlNoVld0YXNrV1BE?tab=BB08J2
+每日工作计划：（每周更新）
+https://docs.qq.com/sheet/DYlNoVld0YXNrV1BE?tab=BB08J2
+4.x应用版本号维护：
+https://docs.qq.com/sheet/DYkpBdHFEYXdleEdo?tab=qxhjnu
+5.组内公共技能
+https://hongz.archermind.com/document/index?document_id=1465
+（应用组->公共技能(视频培训)），如没有权限请联系万帆或者刘霏
+
+鸿志full sdk路径:
+http://10.51.11.95:8080/rom_4_0_daily/
+
+【代码回合】5.0代码回合进度
+ 【金山文档 | WPS云文档】 new_output
+https://kdocs.cn/l/ccikpZ59OLhy
+
+【设备管理】设备挂账信息
+【金山文档 | WPS云文档】 设备统计
+https://kdocs.cn/l/cubPcND1dlRP
+
+开发板中的路径在system/etc/app/install_list_permissions.json
+获取开发板文件：hdc file recv system/etc/app/install_list_permissions.json ./
+授权：hdc shell mount -o remount,rw /
+推送到开发板验证：
+hdc file send install_list_permissions.json system/etc/app/install_list_permissions.json
+重启生效：hdc shell reboot
+
+
+hilog -Q pidoff
+hilog -b D
+hilog -p off
+hilog | grep -i finger&
+
+
+
+window:
+pnputil /enum-drivers  # 列出所有驱动
+安装最新 Windows 更新**：
+  windowsupdate.com
+
+回滚到之前的稳定版本**（如果问题最近出现）：
+  systempropertiesprotection
+
+
+检查磁盘和内存**
+- **运行磁盘检查**：
+  chkdsk /f /r C:
+  
+- **运行内存诊断工具**：
+  mdsched.exe
+
+
+分析具体驱动**
+- 使用 **WinDbg** 进一步分析：
+  ```windbg
+  !analyze -v
+  lmvm <可疑驱动>  # 查看驱动信息
+  !irql          # 查看当前 IRQL
+  ```
+  如果发现某个驱动异常（如 `storport.sys`、`nvme.sys`），更新或卸载它。
+
+### **(5) 收集更多信息**
+- 使用 **Windows 事件查看器** 检查崩溃前的错误日志：
+  eventvwr.msc
+
+
+
+如果问题仍然存在，可以提供：
+1. **`!analyze -v` 的完整输出**。
+2. **最近安装的驱动列表**（`driverquery`）。
+3. **系统日志中的相关错误事件**
+
+
+
+
+查看日志时，不同日志类型按不同颜色显示
+hilog -v color
+
+
+清空hilog缓冲区
+hilog -r
+hilog -r -t logtype # 其中，logtype包括core、app、init和kmsg四种类型
+
+aa dump -a # 获取AbilityRecord ID
+aa dump -a 命令会列出系统中所有应用的 Ability 信息，包括：
+应用的包名（BundleName）
+各个 Ability 的名称和状态
+Ability 所占用的进程信息
+应用的权限、启动模式等配置
+
+
+查看运行中的进程
+hdc shell ps
+
+hdc打开应用
+hdc shell aa start -b com.ohos.photos -a com.ohos.photos.MainAbility
+
+hdc shell "bm dump -n <bundleName> |grep mainAbility"
+#举个例子
+hdc shell "bm dump -n com.DefaultCompany.Sample |grep mainAbility"
+hdc shell bm dump -n com.ohos.photos | grep mainAbility
+ 关闭应用
+stop-service 用于停止ServiceAbility。
+aa stop-service [-d <deviceId>] -a <abilityName> -b <bundleName>
+hdc shell aa stop-service  -a com.ohos.photos.MainAbility -b com.ohos.photos
+
+
+强制关闭应用
+hdc shell aa force-stop com.ohos.photos
+
+hdc shell chown root:root /system/app/com.ohos.systemui/SystemUI.hap
+修改文件或目录的所有者和所属组。在这个命令中：
+chown 是 Linux/Unix 系统中用于更改文件所有者的命令。
+root:root 表示将所有者和所属组都设置为 root 用户。
+/system/app/com.ohos.systemui/SystemUI.hap 是目标文件路径，指向鸿蒙系统的 SystemUI 应用包。
+作用
+将 SystemUI.hap 的权限提升到系统级，通常用于系统应用的定制或修复权限问题。例如：
+系统升级后某些应用权限丢失。
+开发人员需要修改系统 UI 组件的访问权限。
+
+
+
+hdc shell setenforce 0
+功能
+临时禁用 SELinux（Security-Enhanced Linux）的强制访问控制。
+
+hdc shell sync
+功能
+强制将所有未写入磁盘的文件系统缓存数据同步到物理存储设备
+
+重启进入fastboot模式
+hdc target boot -bootloader
+
+重启进入recovery模式
+hdc target boot -recovery
+
+关机
+hdc target boot shutdown
+
+以读写模式挂载系统分区
+hdc target mount
+
+发本地文件到远程设备 
+hdc file send localpath remotepath
+
+从远端设备发文件到本地
+hdc file recv remotepath localpath
+
+卸载
+hdc uninstall packagename
+hdc uninstall com.example.hello
+
+tcp模式切换回usb
+hdc tmode usb
+
+usb模式切换tcp模式
+hdc tmode port 8710
+
+tcp连接设备
+hdc tconn ip:8710
+
+关闭设备无线连接通道
+hdc tmode port close
+
+
+关闭本地hdc服务
+hdc kill
+连接客户端
+hdc -s IP:8710 -m
+
+
+开启hilog日志落盘
+hdc shell hilog -w start
+查看已落盘日志
+hdc shell ls /data/log/hilog
+获取落盘日志
+hdc file recv /data/log/hilog 
+
+
+hdc kill
+hdc kill -r
+hdc start 
+hdc start -r
+
+hdc-h
+hdc -v/version
+
+连接单台或多台设备
+hdc -t connect-key[设备标志] command
+如：
+hdc -t f40122414b4a3231581132420e174a00 shell
+
+指定日志等级
+hdc -l [level] [command]
+如：hdc -l 5 shell ls
+级别说明：
+0:log_off
+1:log_fatal
+2:log_warn
+3:log_info
+4:log_debug
+5:log_all
+
+
+等待设备正常连接
+hdc wait
+
+等待指定设备正常连接
+hdc -t connect-key wait
+
+获取client-server版本
+hdc checkserver
+
+
+OpenSSL 是最常用的证书处理工具，可直接解析 P7B 文件
+# 1. 安装OpenSSL（如果未安装）
+# Ubuntu/Debian:
+sudo apt-get install openssl
+
+# 2. 查看P7B文件中的证书信息
+openssl pkcs7 -inform DER -in your_cert.p7b -print_certs -noout
+
+查看CER证书
+ openssl x509 -in .\com.archermind.appupdate.cer -text -noout
+或者使用在线工具
+https://www.sslshopper.com/certificate-decoder.html
+
+
+通过.cer文件获取证书指纹的SHA256值。
+keytool -printcert -file xxx.cer
+
+
+修改Hvigor工具，增加签名信息打印
+https://blog.csdn.net/q228931518/article/details/144179801
+查看Build日志，搜索SignInfo关键字，输出签名参数信息和明文密钥。
+查看hap签名：
+java -jar D:\openharmony\openharmony-sdk\15\toolchains\lib\hap-sign-tool.jar sign-app -mode localSign -keystoreFile D:\openharmony_ws\OpenHarmony-5.0-Release\applications_systemappupdate\applications_systemappupdate\signature\com.archermind.appupdate.p12 -keystorePwd 8selU1FnR0c -keyAlias debugKey -keyPwd 8selU1FnR0c -signAlg SHA256withECDSA -profileFile D:\openharmony_ws\OpenHarmony-5.0-Release\applications_systemappupdate\applications_systemappupdate\signature\com.archermind.appupdate.p7b -appCertFile D:\openharmony_ws\OpenHarmony-5.0-Release\applications_systemappupdate\applications_systemappupdate\signature\com.archermind.appupdate.cer -inFile D:\openharmony_ws\OpenHarmony-5.0-Release\applications_systemappupdate\applications_systemappupdate\entry\build\default\outputs\default\entry-default-unsigned.hap -outFile D:\openharmony_ws\OpenHarmony-5.0-Release\applications_systemappupdate\applications_systemappupdate\entry\build\default\outputs\default\entry-default-signed.hap
+
+
+版本更新新签名
+alias:debugKey
+password:AA_archermind_9999
+
+9568344
+
+
+
+
+

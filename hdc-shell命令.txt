@@ -1,0 +1,551 @@
+openharmony应用开发HDC 常用命令
+1.查看hdc版本：
+
+hdc --version
+
+ 
+
+2.查看设备sn号：
+hdc list targets
+
+ 
+
+3.进入shell:
+
+hdc shell
+
+ 
+查找文件
+find . -type f -name '*.jpg'
+
+./mnt/hmdfs/100/account/device_view/local/files/Photo/16/IMG_1507292330_000.jpg
+./storage/cloud/100/files/Photo/1/IMG_1507292357_001.jpg
+./storage/media/100/local/files/Photo/1/IMG_1507292357_001.jpg
+
+file://media/Photo/3/
+
+/storage/media/100/local/files/Photo/16
+4.重启设备
+
+hdc shell reboot
+
+ 
+
+5.设置RK开发板根目录的读写权限
+
+hdc shell mount -o rw,remount / # 此命令用于解决推包时提示只读路径，无法推送。例如：[Fail]Error opening file: read-only file system, path:/system/lib/libace.z.so
+
+ 
+
+6.应用安装
+
+hdc install XXX.hap
+
+
+mnt/data/external
+ 
+
+7.文件推送
+
+hdc file send 本机电脑文件 目标设备目录
+hdc file send .\Laucher.hap system/app/com.ohos.launcher/Launcher.hap
+ 
+
+8.文件拉取
+
+hdc file recv 目标设备目录内文件 本机电脑目录
+hdc file recv system/app/com.ohos.launcher/Launcher.hap D:\OpenHarmony\
+
+拉取图片到D盘：hdc file recv /storage/media/100/local/files/Photo/16/IMG_1507297807_000.jpg D:\
+
+hdc file recv /data/bluetooth/log/snoop.log snoop
+
+android 
+adb pull /data/misc/bluetooth/logs/btsnoop_hci.log 1234.log
+
+查看日志
+hdc hilog
+
+获取UUID
+hdc shell bm get --udid
+
+杀掉hdc进程，类似adb kill-server
+hdc kill
+
+9.启动/结束hdc
+
+hdc start
+
+hdc kill
+
+重启hdc
+hdc start -r
+
+启动Ability
+hdc shell aa start -b 包名 -a Ability名称
+hdc shell aa start -b ohos.samples.FormApplication -a ohos.samples.FormApplication.MainAbility
+启动图库：hdc shell aa start -b com.ohos.photos -a com.ohos.photos.MainAbility
+10.设备重启
+
+hdc shell reboot
+
+ 多设备操作
+hdc list targets 查看设备后 
+hdc -t 设备 shell
+hdc -t 7001005458323933328a250f004e3900 shell
+
+
+清除应用缓存
+hdc shell bm clean -n ohos.samples.FormApplication -c
+
+清除应用数据
+hdc shell bm clean -n ohos.samples.FormApplication -d
+
+hdc shell bm 其他操作
+禁止应用，应用在桌面消失
+ hdc shell bm disable -n ohos.samples.FormApplication
+ 
+允许应用，应用在桌面显示
+ hdc shell bm enable -n ohos.samples.FormApplication
+
+查看应用配置信息
+hdc shell bm dump -n ohos.samples.FormApplication
+ 
+  help         list available commands
+  install      install a bundle with options
+  uninstall    uninstall a bundle with options
+  dump         dump the bundle info
+  clean        clean the bundle data
+  enable       enable the bundle
+  disable      disable the bundle
+  get          obtain device udid
+  getrm        obtain the value of isRemovable by given bundle name and module name
+  setrm        set module isRemovable by given bundle name and module name
+
+
+
+hdc shell aa 其他操作
+
+hdc 其他操作
+hdc discover
+hdc tconn
+hdc bugreport
+hdc jpid
+hdc keygen FILE
+
+命令进bootloader：hdc shell reboot loader
+
+
+
+
+
+bm install -h	显示install支持的命令信息
+bm install -p	安装hap包，支持指定路径和多个hap同时安装
+bm install -p -u	给指定用户安装hap包
+bm install -r -p	覆盖安装
+bm install -r -p -u	给指定用户覆盖安装
+
+
+9.在OpenHarmony上调试应用时，可以利用系统内置的hilog工具查看日志信息。本节介绍了hilog的使用方式、参数意义以及快捷操作方式。
+
+- hilog使用方式
+
+- 连接开发板进入shell
+
+
+
+这个命令会列出所有已安装的应用程序包的包名
+hdc shell pm list packages -f
+
+5.设置RK开发板根目录的读写权限
+
+hdc shell mount -o rw,remount / # 此命令用于解决推包时提示只读路径，无法推送。例如：[Fail]Error opening file: read-only file system, path:/system/lib/libace.z.so
+
+
+停止：
+hdc shell am force-stop com.css.umetrip
+
+卸载
+ hdc shell bm uninstall com.css.umetrip
+
+hdc shell bm get -u 鸿蒙获取UDID
+hdc shell bm get --udid
+
+
+hdc shell ps 查看所有进程
+
+
+
+hdc shell
+
+- 调用hilog
+
+hilog [options] #调用hilog时，可指定不同参数，具体参数信息在下一小节给出
+
+- hilog参数解析
+
+本小节给出了hilog部分参数的意义，其他参数可通过查看帮助文档获得
+
+- 查看帮助文档
+
+hilog -h
+
+- 阻塞方式读取日志信息并打印到控制台（阻塞方式指日志信息会一直打印直到手动终止）
+
+hilog
+
+- 非阻塞方式读取日志信息并打印到控制台（日志信息打印到控制台并及时退出，无需手动终止）
+
+hilog -x
+
+- 开启或关闭隐私格式化程序开关（即查看日志时，是否明文显示日志所在文件和函数）
+
+hilog -p on # 开启隐私格式化，不显示日志所在文件和函数
+
+hilog -p off # 关闭隐私格式化，明文显示日志所在文件和函数
+
+- 查看hilog缓冲区大小 
+
+hilog -g
+
+ 
+
+ 
+
+- 查看指定日志类型的缓冲区大小
+
+ 
+
+ 
+
+hilog -g -t logtype # 其中，logtype包括core、app、init和kmsg四种类型
+
+ 
+
+ 
+
+- 设置hilog缓冲区大小
+
+ 
+
+ 
+
+hilog -G 256K # 将各个类型日志的缓冲区大小设置为256K
+
+ 
+
+ 
+
+- 设置指定日志类型的缓冲区大小
+
+ 
+
+ 
+
+hilog -G 256K -t logtype # 其中，logtype包括core、app、init和kmsg四种类型
+
+ 
+
+ 
+
+- 查看日志时，不同日志类型按不同颜色显示
+
+ 
+
+ 
+
+hilog -v color
+
+ 
+
+ 
+
+- 是否保存kmsg类型的日志信息
+
+ 
+
+ 
+
+hilog -k on # hilog将保存kmsg类型的日志
+
+hilog -k off # hilog将不会保存kmsg类型的日志
+
+ 
+
+ 
+
+- 清空hilog缓冲区
+
+ 
+
+ 
+
+hilog -r
+
+ 
+
+ 
+
+- 清空指定日志类型的缓冲区
+
+ 
+
+ 
+
+hilog -r -t logtype # 其中，logtype包括core、app、init和kmsg四种类型
+
+ 
+
+ 
+
+- 查看指定Tag的日志信息
+
+ 
+
+ 
+
+hilog -T Ace # 查看tag为Ace的日志信息
+
+ 
+
+ 
+
+- 查看指定级别的日志信息
+
+ 
+
+ 
+
+hilog -L level # 其中，level包括D、I、W、E和F，分别对应于DEBUG、INFO、WARN、ERROR和FATAL
+
+ 
+
+ 
+
+- 利用正则表达式对日志信息进行过滤
+
+ 
+
+ 
+
+hilog -e expr # 其中，expr为指定的正则表达式
+
+ 
+
+ 
+
+- 对日志信息进行过滤还可以通过grep结合管道符进行，与hilog自带的正则表达式过滤效果相同
+
+ 
+
+ 
+
+hilog | grep keyword1 | grep keyword2 # 查看包含关键词keyword1和keyword2的日志信息
+
+ 
+
+ 
+
+- 将日志信息保存到文件，注意，此处日志文件是在开发板中的。
+
+ 
+
+ 
+
+hilog | grep keyword1 | grep keyword2 > /data/record.log # 日志信息会被保存到文件/data/record.log
+
+ 
+
+ 
+
+- 保存日志信息的同时打印到屏幕上，注意，此处日志文件是在开发板中的。
+
+ 
+
+ 
+
+hilog | grep keyword1 | grep keyword2 | tee /data/record.log # 日志信息会打印到屏幕，同时被保存到文件/data/record.log
+
+ 
+
+ 
+
+- 开启ACE内部的debug日志
+
+ 
+
+```bash
+
+hdc shell
+
+param set persist.ace.debug.enabled 1
+
+```
+
+ 
+
+- 后端切换为flutter
+
+ 
+
+```bash
+
+hdc shell mount -o rw,remount /
+
+hdc shell "touch /etc/disablerosen"
+
+```
+
+ 
+
+- 打印控件树
+
+ 
+
+```bash
+
+hdc shell # 进入shell
+
+aa dump -a # 获取AbilityRecord ID
+
+aa dump -i 10 -element -c # 以AbilityRecord ID为10说明，打印控件树
+
+aa dumpsys -i 10 -render -c
+
+```
+
+ 
+
+- 快捷操作方式
+
+ 
+
+- hdc shell后接引号包含要运行的hilog命令查看运行日志
+
+ 
+
+ 
+
+hdc shell "hilog -v color -T Ace"
+
+ 
+
+ 
+
+- 将日志信息保存到文件，注意，此处日志文件是在电脑中的。
+
+ 
+
+ 
+
+hdc shell "hilog -v color -T Ace | grep keyword1 | grep keyword2" > D:\record.log # 日志信息会被保存到文件D:\record.log
+
+ 
+
+ 
+
+- 保存日志信息的同时打印到屏幕上，注意，此处日志文件是在电脑中的。需要说明的是，cmd不支持tee命令，所以此命令需要在powershell中执行。
+
+ 
+
+ 
+
+hdc shell "hilog -v color -T Ace | grep keyword1 | grep keyword2" | tee D:\record.log # 日志信息会打印到屏幕，同时被保存到文件D:\record.log
+
+
+
+hdc shell mkdir data/local/tmp/27adfd313bf14750941ad93b576924f9
+hdc file send "D:\gitlab_project\harchermindy\harcherOS\4.0\applications_Filemanager\applications_Filemanager\entry\build\default\outputs\default\entry-default-signed.hap" "data/local/tmp/27adfd313bf14750941ad93b576924f9"
+hdc shell bm install -p data/local/tmp/27adfd313bf14750941ad93b576924f9 
+hdc shell rm -rf data/local/tmp/27adfd313bf14750941ad93b576924f9
+hdc shell aa start -a EntryAbility -b com.archermind.filemanager
+
+截图
+1.hdc shell snapshot_display -f /data/0.jpeg
+hdc file recv /data/0.jpeg //拉取文件到本地
+
+
+2.hdc shell wukong special -p
+截屏就在这段输出中的 currentTestDir 目录中，使用如下命令拉取到电脑，注意这个路径是随机的
+hdc file recv /data/local/tmp/wukong/report/20230724_072217/
+
+
+hdc常用命令
+https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ide-command-line-hdc-0000001237908229
+
+终止hdc服务进程
+hdc kill (-r)
+
+1.通过【ip地址：端口号】来指定连接的设备，命令格式如下
+hdc tconn [host][:port][-remove] 如hdc tconn 192.168.0.100:8710
+2.该命令执行后，设备端对应的daemon进程重启，并优先选用usb连接方式，命令格式如下：
+hdc tmode usb
+3.该命令执行后，设备端对应的daemon进程重启，优先使用网络方式连接设备，若未连接成功，再选择usb连接。命令格式如下：
+hdc tmode port [port-number]
+
+
+从本地发送文件至远端设备，命令格式如下：
+hdc file send local remote
+hdc file send E:\example.txt /data/local/tmp/example.txt
+从远端设备发送文件至本地，命令格式如下：
+hdc file recv [-a] remote local
+
+
+app相关命令
+安装HarmonyOS package，命令格式如下：
+hdc app install [-r/-d/-g] package
+参数名
+说明
+-r
+替换已存在应用。
+-d
+允许降级安装。
+-g
+动态授权。
+
+hdc app install com.example.hello
+
+
+卸载HarmonyOS应用，命令格式如下：
+hdc app uninstall [-k] package
+-k 保留缓存数据。
+
+hdc listpid显示可调试应用列表。
+
+hdc hilog [options]打印设备端的日志信息，options表示hilog支持的参数，可通过hdc hilog -h查阅支持的参数列表 。
+
+
+
+
+
+
+
+
+
+bm install -h	显示install支持的命令信息
+bm install -p	安装hap包，支持指定路径和多个hap同时安装
+bm install -p -u	给指定用户安装hap包
+bm install -r -p	覆盖安装
+bm install -r -p -u	给指定用户覆盖安装
+
+
+
+
+
+
+
+无线调试 hdc tconn ip:端口号
+
+
+查看文件的md5:
+certutil -hashfile libdmgr_arm64.so md5
+
+
+
+
+
+
+
+
+
+

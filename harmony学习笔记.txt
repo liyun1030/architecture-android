@@ -1,0 +1,494 @@
+环境配置：
+1.安装node.js,ohpm
+2.下载harmonyos sdk.配置
+3.node.js版本要求v14.19.1以上，且低于v17.0.0,nmp版本为6.14.16及以上
+harmonyos的app后缀是.hap
+
+hap:harmony ability package，它是一个或多个hap包以及pack.info组成
+一个hap对应一个module,它是由代码，资源，第三方库及应用、服务配置文件组成
+HAP分为Entry和Feature两种类型：
+Entry:应用/服务的主模块，可独立安装运行
+Feature:应用/服务的动态特性模块，只有包含Ability的hap才能独立运行，feature构建的hap会还多个entry目录带的pack信息
+
+entry会在桌面上创建一个入口图标，而feature是没有入口图标的。也就是说Feature你没法直接通过桌面入口去打开它的，它最终发布的时候会附加在整个App包中进行发布，发布之后可以通过在ability相关的api接口来调起来feature中的相关FA
+由于feature和entry共用的同一个bundleName，而手机上同一个bundleName的应用只能安装一个，在调试阶段每个hap都被当做了一个独立应用，就导致了这两个hap不能在手机上同时安装，安装一个就会自动先卸载掉另一个，但是在以app包发布之后是可以的，因为app包是一个独立应用（里面包含多个hap，正式发布之后独立应用是以app为单位的而不是hap了
+
+bundleName与package
+package是真正的包名，它是每个hap的包结构名称，同一个App下的bundleName相同，但是package名称不同
+
+HAP是Ability的部署包，HarmonyOS应用代码围绕Ability组件展开，它是由一个或多个Ability组成。Ability分为两种类型：FA(Feature Ability)和PA(Particle Ability)。FA/PA是应用的基本组成单元，能够实现特定的业务功能。FA有UI界面，而PA无UI界面。
+工程目录结构：
+element：表示元素资源，该文件夹下主要存放json格式的文件，主要用来表示 字符串、颜色值、布尔值等，可以在其他地方被引用
+graphic：表示可绘制资源。用xml文件来表示，比如我们项目中设置的 圆角按钮、按钮颜色等都是通过引用这里的资源来统一管理的
+layout：表示布局资源，用xml文件来表示，比如页面的布局资源，都放在这里
+media：表示媒体资源，包括图片、音频、视频等非文本格式的文件。
+eTS(extendedTypeScript)是鸿蒙生态的一种利用开发语言
+hvigor构建工具
+API Version 4~7 和 API Version 8 及以上版本的构建工具和构建插件不同。其中，API
+Version 4~7 构建体系是由 Gradle 构建工具和构建插件组成；API Version 8 及以上构建
+体系是由 Hvigor 构建工具和构建插件组成。所以 API Version 4~7 和 API Version 8 及以
+上的工程目录结构存在差异。下面按照不同开发语言分别介绍 API Version 4~7 和 API
+Version 8 及以上的工程目录结构：
+AppScope > app.json5：应用的全局配置信息。
+entry：应用/服务模块，编译构建生成一个 HAP。
+− src > main > ets：用于存放 ArkTS 源码。
+− src > main > ets > entryability：应用/服务的入口。
+− src > main > ets > pages：应用/服务包含的页面。
+− src > main > resources：用于存放应用/服务所用到的资源文件，如图形、多
+媒体、字符串、布局文件等。关于资源文件的详细说明请参考资源文件的分
+类。
+
+资源目录 资源文件说明
+base>element 包括字符串、整型数、颜色、样式等资源的 json 文件。每
+个资源均由 json 格式进行定义，例如：
+ boolean.json：布尔型
+ color.json：颜色
+ float.json：浮点型
+ intarray.json：整型数组
+ integer.json：整型
+ pattern.json：样式
+ plural.json：复数形式
+ strarray.json：字符串数组
+ string.json：字符串值
+base>media 多媒体文件，如图形、视频、音频等文件，支持的文件格
+式包括：.png、.gif、.mp3、.mp4 等。
+rawfile 用于存储任意格式的原始资源文件。rawfile 不会根据设备
+的状态去匹配不同的资源，需要指定文件路径和文件名进
+行引用。
+
+
+src > main > module.json5：Stage 模型模块配置文件，主要包含 HAP 的配置
+信息、应用在具体设备上的配置信息以及应用的全局配置信息。
+− build-profile.json5：当前的模块信息、编译信息配置项，包括 buildOption、
+targets 配置等。
+− hvigorfile.ts：模块级编译构建任务脚本。
+− oh-package.json5：配置三方包声明文件的入口及包名。
+ oh_modules：用于存放三方库依赖信息，包含应用/服务所依赖的第三方库文件。
+关于原 npm 工程适配 OHPM 包管理器操作，请参考 1.3.6.1 历史工程适配 OHPM
+包管理。
+ build-profile.json5：应用级配置信息，包括签名、产品配置等。
+ hvigorfile.ts：应用级编译构建任务脚本。
+
+分布式连接能力包括：底层能力(Connect Service)和应用层能力(AILife Client Service)
+底层能力:终端usb,接入管理，通信框架
+应用层能力：智慧生活，usb模块，功能模块，配件插件
+
+Ability
+是应用所具务能力的抽象，一个应用可以具备多种能力，HarmonyOS支持应用以Ability为单位进行部署，分为FA，PA
+FA是支持PA的
+
+在harmonyos上运行的应用有2种形态：传统方式安装应用，免安装的应用(原子化服务)
+
+har:harmonyos ability resources,它包括构建应用所需要的内容，包括源代码，资源，和config,它只能作为应用的依籁项被引用。
+
+路由跳转：router.push/back()
+
+config.json由app,deviceConfig,module三部分组成，缺一不可
+
+hap与har的配置文件合并
+如果应用中调用了har,在编译构建hap时，需要将hap的config.json文件与一个或多个har的config.json合并，需要通过mergeRule解决冲突
+看是否有标签值，有不同的则需要mergeRule.
+har配置文件中不能包含action.system.home和entity.system.home
+详见开发手册-82页
+
+har中的actions中的bundleName可用{bundleName}占用
+本地应用数据管理：使用SQLITE引擎，关系型数据库和对象关系映射数据库，轻量级偏好数据库
+
+分布式数据服务
+分布式文件服务
+
+agc:appgalleryconnect
+
+引用资源通过$r来引用，如$r('app.color.start_window_background')
+$r(app.type.name),对于rawfile引用：$rawfile('dir/test.png'),调用rawfile目录下的
+
+对于系统资源的调用:$r('sys.type.resource_id')
+
+@Entry与@Component是装饰器
+struct Hell0{
+自定义组件
+@State mytext:string='world'
+}
+装饰器 用来装饰类、结构体、方法以及变量，赋予其特殊的含义，如上述示例中 @Entry 、 @Component 、 @State 都是装饰器。具体而言， @Component 表示这是个自定义组件； @Entry 则表示这是个入口组件； @State 表示组件中的状态变量，此状态变化会引起 UI 变更。
+
+1、自定义组件的组成
+ArkTS 通过 struct 声明组件名，并通过 @Component 和 @Entry 装饰器，来构成一个自定义组件。
+
+使用 @Entry 和 @Component 装饰的自定义组件作为页面的 入口，会在页面加载时首先进行渲染。
+（1）、使用 @Component 来装饰自定义组件，组成学生列表的Item。在ArkTS中，对组件配置属性与布局方法很简单，支持链式调用。
+（2）、状态：@State
+使用 @State 装饰符改变组件状态，声明式UI的特点就是UI是随数据更改而自动刷新的，我们这里定义了一个类型为 boolean 的变量 isChecked，其被 @State 装饰后，框架内建立了数据和视图之间的绑定，其值的改变影响UI的显示。
+
+export default是js的语法，可以导出模块
+
+ let paramsInfo: DataModel = {
+    id: 123,
+    info: {
+      age: 20
+    }
+  };
+router.pushUrl({
+    url: 'pages/Detail', // 目标url
+    params: paramsInfo // 添加params属性，传递自定义参数
+  }, (err) => {
+    if (err) {
+      console.error(`Invoke pushUrl failed, code is ${err.code}, message is ${err.message}`);
+      return;
+    }
+    console.info('Invoke pushUrl succeeded.');
+  })
+struct：自定义组件可以基于struct实现，不能有继承关系，对于struct的实例化，可以省略new
+自定义组件必须定义build函数
+@Preview装饰struct可以在预览器上预览
+
+三目：this.count%2===0 ? 100 :200
+等于用===
+
+匿名函数用bind(this)
+Color.Red : Color.Black
+
+状态管理
+分为只读的单向传递和可变更的双向传递
+@State 基本类型，类，数组，状态数据修改时会触发组件的build方法进行ui界面更新
+@Prop 基本数据类型  修改后的状态数据用于在父子组件之间建立单向数据依籁关系，修改父组件关联数据时，会更新当前组件ui
+@Link 基本数据，类，数组，父子组件之间的双向数据绑定
+@Observed 类，表示该类中的数据变更被UI页面管理,例如：针对父组件中某个数据对象的部分信息进行同步
+@ObjectLink 被@Observed所装饰的类对象，
+
+@Consume 基本数据类型，类，数组 感知到@Provide的变量更新后，会触发当前自定义组件的重装渲染
+@Provide 基本数据类型，类，数组 作为数据提供方，可以更新其子孙节点数据，并触发页面渲染
+
+AppStorage是整个UI程序的数据库
+@StorageLink:从AppStorage中获得，在UI组件和AppStorage之间建立双向绑定同步数据
+@StoragProp:装ui组件与AppStorage单向同步，appstorage的值改变会更新组件属性，但ui组件无法更新AppStorage属性
+
+@Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化
+
+@ObjectLink和@Observed类装饰器用于在涉及嵌套对象或数组的场景中进行双向数据同步：
+
+被@Observed装饰的类，可以被观察到属性的变化；
+子组件中@ObjectLink装饰器装饰的状态变量用于接收@Observed装饰的类的实例，和父组件中对应的状态变量建立双向数据绑定。这个实例可以是数组中的被@Observed装饰的项，或者是class object中是属性，这个属性同样也需要被@Observed装饰。
+单独使用@Observed是没有任何作用的，需要搭配@ObjectLink或者@Prop使用。
+
+
+PersistentStorage提供了一些静态方法管理应用持久化数据
+Enviroment对象是为AppStorage提供一系列环境状态属性
+
+注意：`的使用
+fp 用于设置文字的大小。和android sp一样
+vp用来设置控件的大小。和Android dp 一样
+
+
+
+har打包：api模型为stage模型
+在该Module的build-profile.json5中添加"artifactType": "obfuscation"开启代码混淆
+需要在har外部调用的ArkUI组件、TS类、方法，使用 export 修饰（不要添加default）
+注意事项
+1.HAR不支持在配置文件中声明abilities、extensionAbilities组件。
+2.HAR不支持在配置文件中声明pages页面。
+3.HAR不支持在build-profile.json5文件的buildOption中配置worker。
+4.FA模型与Stage模型的HAR不支持相互引用。
+5.Stage模型的HAR，不能引用AppScope内的内容。在编译构建时APPScope中的内容不会打包到HAR中，导致HAR资源引用失败。
+
+@Consume,@Provider
+@Provider作为数据提供方，可以更新其子孙节点数据，并触发页面渲染
+@Consume在感知到@Provide数据的更新后，会触发当前自定义组件的重新渲染
+
+@Watch用于监听状态变量的变化，语法结构为：
+@State @Watch("onChanged") count:number=0
+
+装饰器@State,@Prop,@Link,@ObjectLink,@Provide,@Consume,@StoragePro，@StorageLink所装饰的变量均可通过@Watch来监听变化
+
+
+
+globalThis是ArkTS引擎实例内部的一个全局对象，引擎内部的UIAbility/ExtensionAbility/Page都可以使用，因此可以使用globalThis全局对象进行数据同步。
+
+
+CommonEventManager.createSubscriber事件订阅，CommonEventManager.publish，CommonEventManager.unsubscribe
+
+在原有部件中添加一个模块。
+在模块目录下配置BUILD.gn，根据模板类型选择对应的gn模板。
+修改bundle.json
+
+
+敏感权限需要更改sdk下的配置：apl改为system_basic,改完后删除之前的签名文件，重新签名
+D:\openharmony\openharmonysdk\9\toolchains\lib\UnsgnedReleasedProfileTemplate文件，内容如下：
+{
+	"version-name":"2.0.0",
+	"version-code":2,
+	"app-distribution-type":"os_integration",
+	"uuid":"5027b99e-5f9e-465d-9508-a9e0134ffe18",
+	"validity":{
+		"not-before":1594865258,
+		"not-after":1689473258
+	},
+	"type":"release",
+	"bundle-info":{
+		"developer-id":"OpenHarmony",
+		"distribution-certificate":"-----BEGIN CERTIFICATE-----\nMIICFDCCAZugAwIBAgIIK0NHoM53aWMwCgYIKoZIzj0EAwMwYzELMAkGA1UEBhMC\nQ04xFDASBgNVBAoTC09wZW5IYXJtb255MRkwFwYDVQQLExBPcGVuSGFybW9ueSBU\nZWFtMSMwIQYDVQQDExpPcGVuSGFybW9ueSBBcHBsaWNhdGlvbiBDQTAeFw0yMzEy\nMjYwMzAyMzhaFw0zMzEyMjMwMzAyMzhaMEoxFTATBgNVBAMMDGlkZV9kZW1vX2Fw\ncDENMAsGA1UECxMEVW5pdDEVMBMGA1UEChMMT3JnYW5pemF0aW9uMQswCQYDVQQG\nEwJDTjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABEj5YTwugRsliUncCndCRUQn\n7owHcqh6UJpTZ/xNHaj1aqfYXCo9kuMhgIbSfJmqvnMjKiqJB4M7oLKoFApiMFaj\nUjBQMB0GA1UdDgQWBBTSD4yUWdR56emQllCSZoQiipzE1DAOBgNVHQ8BAf8EBAMC\nB4AwHwYDVR0jBBgwFoAU24a3IhbVC6FLt90le7nxBX2iLUcwCgYIKoZIzj0EAwMD\nZwAwZAIwSE1eI5FKazVYTjRhNIwTzPLEdGJDwJ2QY6wDboC26zsX2kvQHF+wl0WQ\n0sathdNaAjA9OBOsty8Z2OGWKeaG7k3bMFbG64Iv1S3Eu22Auzppsjl8wZhUuHAD\nWbtv6ndwzaA=\n-----END CERTIFICATE-----\n",
+		"bundle-name":"com.archermind.myapplication",
+		"apl":"system_basic",
+		"app-feature":"hos_normal_app"
+	},
+	"acls":{
+		"allowed-acls":[
+			"ohos.permission.GET_BUNDLE_INFO_PRIVILEGED",
+			"ohos.permission.NOTIFICATION_CONTROLLER"
+		]
+	},
+	"permissions":{
+		"restricted-permissions":[
+		"ohos.permission.GET_BUNDLE_INFO_PRIVILEGED",
+		"ohos.permission.NOTIFICATION_CONTROLLER"
+		]
+	},
+	"issuer":"pki_internal"
+}
+
+@Watch应用于对状态变量的监听。如果开发者需要关注某个状态变量的值是否改变，可以使用@Watch为状态变量设置回调函数。
+@StorageLink('bluetoothIsOn') @Watch('switchIsOn') isOn: boolean = false;
+switchIsOn() {
+    LogUtil.log(this.PAGE_TAG + 'Toggle onClick ----- out : isOn = ' + this.isOn)
+  }
+
+aboutToAppear：是被@Component修饰自定义组件的生命周期方法，函数在创建自定义组件的新实例后，在执行其build函数之前执行
+aboutToAppear函数在创建自定义组件的新实例后，在执行其build函数之前执行。允许在aboutToAppear函数中改变状态变量，更改将在后续执行build函数中生效
+onAppear：是每个组件的属性方法，在该组件显示时触发此回调。
+aboutToDisappear函数在自定义组件析构销毁之前执行。不允许在aboutToDisappear函数中改变状态变量，特别是@Link变量的修改可能会导致应用程序行为不稳定。
+
+
+
+获取设备udid
+hdc shell bg get -udid
+
+持久化存储：AppStorage,PersistentStorage,settings.preferences
+SystemSettings.setValue需要权限ohos.permission.MODIFY_SETTINGS
+
+查看持久化存储文件：/data/app/el2/100/base/com.archermind.myapplication/，file,cache,preferences
+还有IDataSource，DataChangeListener的方式
+0！=‘’在openharmony中返回false,为就是空，===
+
+
+OpenHarmony自定义构建函数：@Builder装饰器
+ArkUI还提供了一种更轻量的UI元素复用机制@Builder，@Builder所装饰的函数遵循build()函数语法规则，开发者可以将重复使用的UI元素抽象成一个方法，在build方法里调用。
+为了简化语言，我们将@Builder装饰的函数也称为“自定义构建函数”。
+说明：
+从API version 9开始，该装饰器支持在ArkTS卡片中使用。
+
+Stack：堆叠容器，子组件按照顺序依次入栈，后一个子组件覆盖前一个子组件
+Stack(value:{alignContent?: Alignment})
+        alignContent：设置子组件在容器内的对齐方式（默认Center）
+
+Flex:用于设置组件的宽高、边距。
+
+@extend
+装饰器将新的属性方法添加到Text,Column,Button等组件上，通过@Extend装饰器可以快速扩展原生组件。
+@Extend不能定义在自定义组件struct内，仅支持属性方法设置
+
+@CustomDialog装饰器用于装饰自定义弹窗组件，使得弹窗可以动态设置内容和样式
+
+
+app.json5
+AppScope>app.json5是应用的全局的配置文件，用于存放应用公共的配置信息
+
+entry>src>main>module.json5是模块的配置文件，包含当前模块的配置信息。
+
+
+
+页面生命周期
+onInit	() => void	页面初始化	页面数据初始化完成时触发，只触发一次。
+onReady	() => void	页面创建完成	页面创建完成时触发，只触发一次。
+onShow	() => void	页面显示	页面显示时触发。
+onHide	() => void	页面消失	页面消失时触发。
+onDestroy	() => void	页面销毁	页面销毁时触发。
+
+
+LazyForEach必须在容器内使用，目前仅有List,Grid,Swiper组件支持数据懒加载，且只支持创建一个子组件，不允许出现在if/else中
+
+
+变量的双向绑定：
+arkts当前支持$$类型变量，支持@State,@Link,@Prop,$$通常用于状态值频繁改变的变量，仅渲染当前组件，提高渲染速度
+@State cystinOio:boolean=false
+bindPopup时，传参$$this.customPopup
+
+FA模型分类：PageAbility,ServiceAbility,DataAbility,FormAbility
+
+应用独享独立进程，Ability独享独立线程，应用进程在Ability第一次启动时创建，会为每一个Ability创建相应线程，每个Ability绑定一个独立的JSRuntime实例，
+因为Ability之间是隔离的
+
+pageAbility生命周期：oncreate onshow onactive onhide oninactive ondestory
+
+serviceAbility生命周期：onstart,oncommond,onconnect,ondisconnect,onstop
+启动service:featureAbility.startAbility
+连接本地service:featureAbility.connectAbility()
+
+DataAbility:onInitialized,update,query,delete,normalizeUri,batchInsert,insert,openFile,getFileTypes,getType,executeBatch,call
+dataability的uri多一个/,如:var uri="dataability:///com.ix.dataAbility"
+向rdb插数据：
+var valuesBucket={"name":"123"}
+var daHelper=featureability.acquredataabilityhelper(uri)
+dahelper.insert(uri,valuesBucket,)
+
+FA卡片开发：卡片可以将应用的重要信息或操作前置到卡片，以达到服务直达，减少层级
+FA卡片开发，包括以下逻辑：
+1.开发卡片生命周期函数：LiefecycleeForm
+2.创建卡片数据FormBindingData对象
+3.通过FormProvider更新卡片
+
+WantAgent：封装了一个行为意图信息，可以通过WantAgent.trigger主动触发，也可以通达与通知绑定被动触发，行为包括：启动Ability,发布公共事件
+提供了封装行为意图的能力,该行为意图是指拉起指定的应用组件及发布公共事件等能力
+
+arkui
+方舟开发框架：组件，页面
+包括：UI组件，布局，动画，绘制，交互事件，平台API通道，两种开发范式
+
+flex:弹性布局，stack布局：堆叠组件
+
+少用sync方法，因为会导致文件大小为0
+
+
+对话框无法关闭时，调用setTimeout(()=>{ this.progressDialog.close() })则可以
+
+async keepOrReplaceFile(tag: number, selectedFiles: string[]) {
+  try {
+    await this.progressDialog.open();
+    //使用微任务模拟延迟
+    await Promise.resolve().then(() => {
+      return new Promise<void>(async (resolve) => {
+        setTimeout(() => {
+          try {
+            await Promise.all(selectedFiles.map(async (filePath, index) => {
+              // ... 执行异步操作
+            }));
+
+            // 其他代码...
+            
+            // 所有文件处理完成后关闭ProgressDialog
+            this.progressDialog.close();
+            resolve();
+          } catch (error) {
+            // 处理错误
+            resolve(); // 即使发生错误也结束此Promise以避免挂起
+          }
+        }, 1000);
+      });
+    });
+  } catch (error) {
+    
+  }
+}
+解析此代码，Promise.resolve()与Promise.all
+
+
+
+FA模型下的线程主要有如下三类：
+
+主线程： 负责管理其他线程。
+
+Ability线程：
+
+每个Ability一个线程。
+输入事件分发。
+UI绘制。
+应用代码回调（事件处理，生命周期）。
+接收Worker发送的消息。
+Worker线程： 执行耗时操作。
+
+基于当前的线程模型，不同的业务功能运行在不同的线程上，业务功能的交互就需要线程间通信。线程间通信目前主要有Emitter和Worker两种方式，其中Emitter主要适用于线程间的事件同步， Worker主要用于新开一个线程执行耗时任务。
+
+setTimeOut,clearTimeOut,clearInterval
+
+
+
+
+
+
+
+
+Flex
+以弹性方式布局子组件的容器组件
+Flex(value?: { direction?: FlexDirection, wrap?: FlexWrap, justifyContent?: FlexAlign, alignItems?: ItemAlign, alignContent?: FlexAlign })
+类似Linearlayout,可以设置横向或纵向
+
+Stack
+堆叠容器，子组件按照顺序依次入栈，后一个子组件覆盖前一个子组件。
+
+// 使用展幂数组操作符(...)将babyList的数据合并到dataList中
+    this.dataList = [...this.dataList, ...this.babyList];
+
+
+ColumnAttribute公众方法，onAppear(),onDisappear()
+
+
+
+Record<string, Object>
+
+
+alignItems(VerticalAlign.Center)
+作用范围: 该方法用于容器组件（例如 Column, Row），并影响其所有子组件的垂直对齐方式。
+功能: 将容器内所有子组件在垂直方向上对齐到中心位置。
+
+.alignSelf(ItemAlign.Center)
+作用范围: 该方法用于单个子组件，并仅影响该组件自身在父容器中的对齐方式。
+功能: 将该组件在父容器中单独对齐到中心位置，不影响其他兄弟组件。
+
+.align(Alignment.Center)
+作用范围: 该方法用于对齐整个组件（例如 Text, Image, Container），并在其父容器中居中对齐。
+功能: 将组件在其父容器中水平和垂直方向上都居中对齐。
+
+
+
+
+ 组件复用的时候会回调这个方法，就不会走aboutToAppear
+  aboutToReuse
+
+在 OpenHarmony 中，@State 和 @Link 是用于管理和传递组件状态的装饰器。使用 $ 符号是一个特殊的语法，用于将状态和属性从父组件绑定到子组件。
+
+区别
+$isHeight 和 $isTipsShow: 这两个变量的前面带有 $ 符号，它们用于将父组件的状态绑定到子组件的 @Link 属性。这样，当父组件的状态发生变化时，子组件会自动更新以反映这些变化。这种绑定机制在数据驱动的界面中非常常见，因为它可以确保子组件的内容始终与父组件的状态保持一致。
+
+this.isHeight 和 this.isTipsShow: 这是在类组件方法中访问组件实例的状态属性的标准方式。使用 this.isHeight 可以读取或修改组件的状态，但是如果直接传递 this.isHeight 而不是 $isHeight 给子组件，那么这个值将不会自动更新，子组件不会在父组件状态变化时自动重新渲染。
+
+
+onVisibleAreaChange可见区域变化
+
+
+针对对象内部的元素变化，使用
+@Observed，@ObjectLink
+
+
+textAlign、align、alignSelf 区别
+textAlign：用于文本内容的水平对齐，控制文字在组件内的显示位置。
+align：用于容器组件，控制其所有子组件在主轴方向上的对齐方式。
+alignSelf：用于单个子组件，控制该组件在父容器中的对齐方式
+
+hilog -p off 这个就是关闭私有日志的开关
+hilog -Q pidoff
+hilog -b D
+hilog -p off
+hilog | grep -i finger&
+
+数据库：dataorm库
+https://gitee.com/openharmony-sig/ohos_dataorm
+
+
+深拷贝：
+1.用json,
+2.Object.assign
+3.写一个方法
+
+AbilityStage拥有onCreate()生命周期回调和onAcceptWant()、onConfigurationUpdated()、onMemoryLevel()事件回调
+
+AbilityStage拥有onCreate()生命周期回调和onAcceptWant()、onConfigurationUpdated()、onMemoryLevel()事件回调。
+
+onCreate()生命周期回调：在开始加载对应Module的第一个UIAbility实例之前会先创建AbilityStage，并在AbilityStage创建完成之后执行其生命周期回调。AbilityStage模块提供在Module加载的时候，通知开发者，可以在此进行该Module的初始化（如资源预加载，线程创建等）能力。onCreate()
+
+onAcceptWant()事件回调：UIAbility指定实例模式（specified）启动时候触发的事件回调。
+
+onConfigurationUpdated()事件回调：当系统全局配置发生变更时触发的事件，系统语言、深浅色等，配置项目前均定义在Configuration类中。
+
+onMemoryLevel()事件回调：当系统调整内存时触发的事件。
+
+OpenHarmony的进程模型如下图所示：
+
+应用中（同一包名）的所有UIAbility、ServiceExtensionAbility、DataShareExtensionAbility运行在同一个独立进程中，即图中绿色部分的“Main Process”

@@ -1,0 +1,24 @@
+
+
+基础知识：
+相关官方资料地址整理
+openharmony开发者api地址：
+https://docs.openharmony.cn/pages/v4.0/zh-cn/OpenHarmony-Overview_zh.md/
+
+openharmony gitee开源项目地址:
+https://gitee.com/openharmony
+
+gitee openharmony api:
+https://gitee.com/openharmony/docs/tree/master/zh-cn/application-dev/reference/apis
+
+huawei开发者联盟论坛：
+https://developer.huawei.com/consumer/cn/forum/communityHome
+
+laval社区：
+https://laval.csdn.net/
+
+openharmony鸿蒙开发者社区：
+https://ost.51cto.com/
+
+华为鸿蒙操作系统(OpenHarmony) v1.0 开发者文档
+https://www.bookstack.cn/read/openharmony-1.0-zh-cn/Readme-CN.md
